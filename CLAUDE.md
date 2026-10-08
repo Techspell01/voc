@@ -8,7 +8,7 @@ Speak in Malayalam / Manglish and Voc writes it up. Three modes (Home): **Email*
 - React 19 + Vite 8, plain CSS (`src/styles.css`), JSX, vitest. PWA via vite-plugin-pwa in injectManifest mode (`src/sw.js` also receives Android shares).
 - `npm run dev` (port 3200) serves the app and `api/*.js` together (the dev plugin in vite.config.js loads `.env.local`). `npm test`, `npm run build`, `npm run icons`.
 - `npm run eval` (rules, instant), `npm run eval -- --set=holdout`, `npm run eval -- --llm --only=llm --provider=gemini --pace=4500 --save=label`, `npm run eval:audio -- --llm` (needs edge-tts; `TTS_PYTHON` if it's in a venv).
-- Live at https://usevoc.vercel.app (Vercel project `voc` on the user's own account, linked in `.vercel/`). `npm run deploy` = tests + `vercel deploy --prod`. Production env: GEMINI_API_KEY, GROQ_API_KEY; SARVAM_API_KEY not set yet, waiting for the user's key (no APP_KEY: it's a public demo; add one with `npx vercel env add APP_KEY production` to lock it).
+- Code: https://github.com/Techspell01/voc (public, main; `git push` after commits). Live at https://usevoc.vercel.app (Vercel project `voc` on the user's own account, linked in `.vercel/`). `npm run deploy` = tests + `vercel deploy --prod`. Production env: GEMINI_API_KEY, GROQ_API_KEY; SARVAM_API_KEY not set yet, waiting for the user's key (no APP_KEY: it's a public demo; add one with `npx vercel env add APP_KEY production` to lock it).
 - Keys live in `.env.local` (git-ignored; the Groq and Gemini keys were copied from finalproject/nl2sql/.env). `.env.example` lists every setting.
 
 ## How the pieces fit
