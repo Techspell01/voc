@@ -1,0 +1,59 @@
+{"id":"shop-01","domain":"shop","text":"Chetta, randu kilo ari, oru kilo panchasara, arakilo cheriya ulli pinne pathu mutta venam ketto","items":[["Rice",2,"kg"],["Sugar",1,"kg"],["Shallots",0.5,"kg"],["Egg",10,null]]}
+{"id":"shop-02","domain":"shop","text":"ari 5 kilo, thakkali onnara kilo, paalum muttayum venam. nale raavile ethikkanam","items":[["Rice",5,"kg"],["Tomato",1.5,"kg"],["Milk",null,null],["Egg",null,null]],"order":{"date":"2026-10-09"}}
+{"id":"shop-03","domain":"shop","text":"nooru roopaykku kariveppila, 2 packet maggi, oru Surf excel","items":[["Curry leaves",100,"₹"],["Noodles",2,"packet"],["Surf.*",1,null]]}
+{"id":"shop-04","domain":"shop","text":"Hello chechi, oru litre velichenna, kaal kilo mulakupodi, 200 gram manjal podi. vaikunneram 5 manikku vannu edukkam","items":[["Coconut oil",1,"l"],["Chilli powder",0.25,"kg"],["Turmeric powder",200,"g"]],"order":{"date":"2026-10-08","time":"17:00"}}
+{"id":"shop-05","domain":"shop","text":"മൂന്ന് പാക്കറ്റ് പാൽ, ഒരു ഡസൻ മുട്ട, ഒരു ബ്രെഡ്","items":[["Milk",3,"packet"],["Egg",1,"dozen"],["Bread",1,null]]}
+{"id":"shop-06","domain":"shop","text":"1 kg chicken, half kg beef, 2 packet milma","items":[["Chicken",1,"kg"],["Beef",0.5,"kg"],["Milk",2,"packet"]]}
+{"id":"shop-07","domain":"shop","text":"Ikka, oru kilo mathi, arakilo chemmeen. curry-kku vendi aanu, clean cheythu tharanam","items":[["Sardine",1,"kg"],["Prawns",0.5,"kg"]]}
+{"id":"shop-08","domain":"shop","text":"savala 2 kilo, urulakizhangu 1 kilo, inji kaal kilo, veluthulli kaal kilo, pachamulaku 100 gram","items":[["Onion",2,"kg"],["Potato",1,"kg"],["Ginger",0.25,"kg"],["Garlic",0.25,"kg"],["Green chilli",100,"g"]]}
+{"id":"shop-09","domain":"shop","text":"randu packet aripodi, oru packet rava, oru kilo atta pinne 5 litre sunflower oil","items":[["Rice flour",2,"packet"],["Rava",1,"packet"],["Wheat flour",1,"kg"],["Sunflower oil",5,"l"]]}
+{"id":"shop-10","domain":"shop","text":"Order: 3 kg matta ari, 1 kg thuvara parippu, 500 g uzhunnu, 1 kg kadala. Saturday delivery venam","items":[["Matta rice",3,"kg"],["Toor dal",1,"kg"],["Urad dal",500,"g"],["Chickpeas",1,"kg"]],"order":{"date":"2026-10-10"}}
+{"id":"shop-11","domain":"shop","text":"mutta venda, paal randu packet koode","items":[["Milk",2,"packet"]]}
+{"id":"shop-12","domain":"shop","text":"chetta innale paranja list-il ninnu panchasara venda, pakaram sharkkara oru kilo","items":[["Jaggery",1,"kg"]]}
+{"id":"shop-13","domain":"shop","text":"Oru dozen pazham, 2 kilo apple, oru kilo munthiri","items":[["Banana",1,"dozen"],["Apple",2,"kg"],["Grapes",1,"kg"]]}
+{"id":"shop-14","domain":"shop","text":"pathu ennam thenga, randu kettu cheera, oru kettu malliyila","items":[["Coconut",10,"piece"],["Spinach",2,"bundle"],["Coriander leaves",1,"bundle"]]}
+{"id":"shop-15","domain":"shop","text":"2 Colgate paste, 4 Lifebuoy soap, oru packet washing powder","items":[["Toothpaste",2,null],["Soap",4,null],["Washing powder",1,"packet"]]}
+{"id":"shop-16","domain":"shop","text":"അര കിലോ ബീൻസ്, കാൽ കിലോ കാരറ്റ്, ഒരു കാബേജ്","items":[["Beans",0.5,"kg"],["Carrot",0.25,"kg"],["Cabbage",1,null]]}
+{"id":"shop-17","domain":"shop","text":"nale uchakku munpu 20 kilo ari, 5 kilo panchasara ayakkanam, hotel-ilekku aanu","items":[["Rice",20,"kg"],["Sugar",5,"kg"]],"order":{"date":"2026-10-09"}}
+{"id":"shop-18","domain":"shop","text":"kada adakkunnathinu munpu 2 cylinder gas ethikkanam","items":[["Gas cylinder",2,null]]}
+{"id":"shop-19","domain":"shop","text":"1/2 kg butter, 2 packet bread, 1 cheese","items":[["Butter",0.5,"kg"],["Bread",2,"packet"],["Cheese",1,null]]}
+{"id":"shop-20","domain":"shop","text":"oru kilo kozhi, curry cut aakki tharanam. 12 manikku munpu venam","items":[["Chicken",1,"kg"]],"order":{"date":"2026-10-08","time":"12:00"}}
+{"id":"shop-21","domain":"shop","text":"2kg tomato 1kg onion 1/2kg green chilli","items":[["Tomato",2,"kg"],["Onion",1,"kg"],["Green chilli",0.5,"kg"]]}
+{"id":"shop-22","domain":"shop","text":"chetta 1 kilo kozhi irachi, 1/2 kilo beef, 1 dozen mutta. 11 mani aakumbo deliver cheyyamo","items":[["Chicken",1,"kg"],["Beef",0.5,"kg"],["Egg",1,"dozen"]],"order":{"date":"2026-10-08","time":"11:00"}}
+{"id":"shop-23","domain":"shop","text":"ഒരു കിലോ സവാള, അര കിലോ തക്കാളി, പിന്നെ രണ്ട് തേങ്ങ","items":[["Onion",1,"kg"],["Tomato",0.5,"kg"],["Coconut",2,null]]}
+{"id":"shop-24","domain":"shop","text":"Site-il 50 bag cement, 2 load manal venam, mattannal raavile","items":[["Cement",50,"bag"],["Sand",2,"load"]],"order":{"date":"2026-10-10"}}
+{"id":"shop-25","domain":"shop","text":"randu kuppi velichenna, oru packet chaya podi, kaal kilo kaapi podi, anju kilo panchasara","items":[["Coconut oil",2,"bottle"],["Tea powder",1,"packet"],["Coffee powder",0.25,"kg"],["Sugar",5,"kg"]]}
+{"id":"fam-01","domain":"family","text":"nale raavile 10 manikku ammede doctor appointment und, reports eduthu vekkanam","events":[{"kw":"doctor","date":"2026-10-09","time":"10:00"}],"todos":[{"kw":"report","date":"2026-10-09"}]}
+{"id":"fam-02","domain":"family","text":"Current bill adakkanam, pinne achane vilikkanam","todos":[{"kw":"bill"},{"kw":"call.*achan|achan.*call"}]}
+{"id":"fam-03","domain":"family","text":"velliyazhcha vaikunneram anchara manikku meeting und","events":[{"kw":"meeting","date":"2026-10-09","time":"17:30"}]}
+{"id":"fam-04","domain":"family","text":"adutha thinkalazhcha kalyanam und, marakkalle","events":[{"kw":"wedding|kalyanam","date":"2026-10-12"}]}
+{"id":"fam-05","domain":"family","text":"ammakku marunnu vaanganam, kuttiye 4 manikku school-il ninnu koottanam","todos":[{"kw":"medicine|marunnu"},{"kw":"pick|school","date":"2026-10-08","time":"16:00"}]}
+{"id":"fam-06","domain":"family","text":"മോളെ, വൈകുന്നേരം വരുമ്പോൾ ഒരു കിലോ പഞ്ചസാരയും രണ്ട് പാക്കറ്റ് പാലും വാങ്ങിക്കോ","items":[["Sugar",1,"kg"],["Milk",2,"packet"]]}
+{"id":"fam-07","domain":"family","text":"innu rathri 8 manikku Ravi-yude birthday party und","events":[{"kw":"birthday","date":"2026-10-08","time":"20:00"}]}
+{"id":"fam-08","domain":"family","text":"gas booking cheyyanam, number 9846012345","todos":[{"kw":"gas"}]}
+{"id":"fam-09","domain":"family","text":"adutha masam 5-aam theethi kuri adakkanam","todos":[{"kw":"kuri|chitty","date":"2026-11-05"}]}
+{"id":"fam-10","domain":"family","text":"ee shaniyazhcha veedu clean cheyyanam, guests varunnund njayarazhcha","todos":[{"kw":"clean","date":"2026-10-10"}],"events":[{"kw":"guest","date":"2026-10-11"}]}
+{"id":"fam-11","domain":"family","text":"Kunjinte vaccination nale 11 manikku aanu, card eduthu vekkanam","events":[{"kw":"vaccin","date":"2026-10-09","time":"11:00"}],"todos":[{"kw":"card","date":"2026-10-09"}]}
+{"id":"fam-12","domain":"family","text":"Mol-nte PTA meeting velliyazhcha 3 manikku","events":[{"kw":"pta|meeting","date":"2026-10-09","time":"15:00"}]}
+{"id":"fam-13","domain":"family","text":"നാളെ വൈകുന്നേരം ഏഴ് മണിക്ക് അമ്മാവന്റെ വീട്ടിൽ dinner ഉണ്ട്","events":[{"kw":"dinner","date":"2026-10-09","time":"19:00"}]}
+{"id":"fam-14","domain":"family","text":"Mattannal Guruvayoor ambalathil pokanam, raavile 5 manikku irangam","events":[{"kw":"guruvayoor|temple","date":"2026-10-10","time":"05:00"}]}
+{"id":"fam-15","domain":"family","text":"Achan nale ethum, 6.30-nte trainil. station-il poyi koottanam","events":[{"kw":"achan|train","date":"2026-10-09","time":"18:30"}],"todos":[{"kw":"pick|station","date":"2026-10-09"}]}
+{"id":"fam-16","domain":"family","text":"Nale class illa, mattannal exam und 10 manikku","events":[{"kw":"exam","date":"2026-10-10","time":"10:00"}]}
+{"id":"fam-17","domain":"family","text":"Ammayi vilichirunnu, sunday lunch-nu varum ennu paranju","events":[{"kw":"ammayi|lunch","date":"2026-10-11"}]}
+{"id":"fam-18","domain":"family","text":"nale raavile thanne vellam bill adakkanam, illel connection cut aakum","todos":[{"kw":"water bill|bill","date":"2026-10-09"}]}
+{"id":"fam-19","domain":"family","text":"അച്ഛന്റെ ഗുളിക തീർന്നു, നാളെ മെഡിക്കൽ ഷോപ്പിൽ നിന്ന് വാങ്ങണം","todos":[{"kw":"tablet|medicine|gulika","date":"2026-10-09"}]}
+{"id":"fam-20","domain":"family","text":"ok chetta","items":[],"todos":[],"events":[]}
+{"id":"work-01","domain":"work","text":"Rahul, nale 10 manikku client meeting und, presentation ready aakkanam","events":[{"kw":"meeting","date":"2026-10-09","time":"10:00"}],"todos":[{"kw":"presentation","date":"2026-10-09"}]}
+{"id":"work-02","domain":"work","text":"invoice ellam innu thanne client-inu ayakkanam, pinne GST file cheyyanam 20th-nu munpu","todos":[{"kw":"invoice","date":"2026-10-08"},{"kw":"gst","date":"2026-10-20"}]}
+{"id":"work-03","domain":"work","text":"Plumber-ne vilichu motor nokkan parayanam","todos":[{"kw":"plumber"}]}
+{"id":"work-04","domain":"work","text":"Thursday 4 PM zoom call with the Bangalore team, link ayachu tharam","events":[{"kw":"call|zoom","date":"2026-10-15","time":"16:00"}]}
+{"id":"work-05","domain":"work","text":"staff-inte salary 7-aam theethikku munpu credit cheyyanam","todos":[{"kw":"salary","date":"2026-11-07"}]}
+{"id":"work-06","domain":"work","text":"Delivery boy-ne vilichu 3 order pending aanennu parayanam","todos":[{"kw":"delivery"}]}
+{"id":"work-07","domain":"work","text":"oru 5 minute kazhinju call cheyyam","items":[],"todos":[],"events":[]}
+{"id":"work-08","domain":"work","text":"naale office-il 9.30-nu ethanam, ID card marakkalle","events":[{"kw":"office","date":"2026-10-09","time":"09:30"}],"todos":[{"kw":"id","date":"2026-10-09"}]}
+{"id":"work-09","domain":"work","text":"stock check cheyyanam, 10 box biscuit, 5 box soap order cheyyanam","todos":[{"kw":"stock"}],"items":[["Biscuit",10,"box"],["Soap",5,"box"]]}
+{"id":"work-10","domain":"work","text":"ee aazhcha thanne vandi service-nu kodukkanam, insurance renew cheyyanam","todos":[{"kw":"service|vehicle"},{"kw":"insurance"}]}
+{"id":"mix-01","domain":"mixed","text":"Chetta, randu kilo ari, pinne nale vaikunneram 6 manikku Anu-vinte birthday party und, oru cake order cheyyanam","items":[["Rice",2,"kg"],["Cake",1,null]],"events":[{"kw":"birthday","date":"2026-10-09","time":"18:00"}]}
+{"id":"mix-02","domain":"mixed","text":"നാളെ രാവിലെ 10 മണിക്ക് meeting ഉണ്ട്. രണ്ട് കിലോ തക്കാളി വാങ്ങണം","events":[{"kw":"meeting","date":"2026-10-09","time":"10:00"}],"items":[["Tomato",2,"kg"]]}
+{"id":"mix-03","domain":"mixed","text":"file submit cheyyanam nale, pinne 15th theethi rent adakkanam","todos":[{"kw":"submit|file","date":"2026-10-09"},{"kw":"rent","date":"2026-10-15"}]}
+{"id":"mix-04","domain":"mixed","text":"varumbo oru packet paal vaangikko, pinne 7 manikku Ammayi vilikkum, phone edukkanam","items":[["Milk",1,"packet"]],"todos":[{"kw":"phone|call|ammayi","date":"2026-10-08","time":"19:00"}]}

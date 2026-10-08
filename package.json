@@ -1,0 +1,36 @@
+{
+  "name": "voc",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "Voc: turns Manglish voice notes and messages into to-dos, calendar entries and order lists.",
+  "scripts": {
+    "dev": "vite",
+    "dev:phone": "vite --host",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "deploy": "npm test && npx vercel deploy --prod --yes",
+    "eval": "node --env-file-if-exists=.env.local scripts/eval.mjs",
+    "eval:audio": "node --env-file-if-exists=.env.local scripts/eval-audio.mjs",
+    "icons": "node scripts/make-icons.mjs"
+  },
+  "dependencies": {
+    "@fontsource/barlow-condensed": "^5.3.0",
+    "@fontsource/caveat": "^5.3.0",
+    "@fontsource/dm-mono": "^5.3.0",
+    "@fontsource/noto-sans-malayalam": "^5.3.0",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^6.1.2",
+    "sharp": "^0.35.5",
+    "vite": "^8.3.3",
+    "vite-plugin-pwa": "^2.0.0",
+    "vitest": "^5.0.3",
+    "workbox-core": "^7.4.1",
+    "workbox-precaching": "^7.4.1",
+    "workbox-routing": "^7.4.1"
+  }
+}

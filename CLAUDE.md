@@ -1,0 +1,33 @@
+# Voc
+
+Named Voc (from "voice") by the user on 2026-10-08, after Kurippu and Parayu were rejected. The mark is five sound-wave bars on a coral disc.
+
+Speak in Malayalam / Manglish and Voc writes it up. Three modes (Home): **Email** (an English email, editable, rewrite buttons, opens Gmail / mail app), **Note** (a short English note that writes itself live onto a sticky note on the Notes wall), **Lists** (to-dos, calendar dates, shop orders; orders can be shopped on Blinkit / Zepto / Instamart / BigBasket / JioMart item by item). A React PWA plus Vercel functions in `api/` (status, transcribe, extract, compose). Read README.md for how it works and the eval numbers, PLAN.md for what's next.
+
+## Stack and commands
+- React 19 + Vite 8, plain CSS (`src/styles.css`), JSX, vitest. PWA via vite-plugin-pwa in injectManifest mode (`src/sw.js` also receives Android shares).
+- `npm run dev` (port 3200) serves the app and `api/*.js` together (the dev plugin in vite.config.js loads `.env.local`). `npm test`, `npm run build`, `npm run icons`.
+- `npm run eval` (rules, instant), `npm run eval -- --set=holdout`, `npm run eval -- --llm --only=llm --provider=gemini --pace=4500 --save=label`, `npm run eval:audio -- --llm` (needs edge-tts; `TTS_PYTHON` if it's in a venv).
+- Live at https://usevoc.vercel.app (Vercel project `voc` on the user's own account, linked in `.vercel/`). `npm run deploy` = tests + `vercel deploy --prod`. Production env: GEMINI_API_KEY, GROQ_API_KEY; SARVAM_API_KEY not set yet, waiting for the user's key (no APP_KEY: it's a public demo; add one with `npx vercel env add APP_KEY production` to lock it).
+- Keys live in `.env.local` (git-ignored; the Groq and Gemini keys were copied from finalproject/nl2sql/.env). `.env.example` lists every setting.
+
+## How the pieces fit
+- `src/lib/manglish/`: the language core, pure and offline. `translit.js` (Malayalam script -> Manglish), `lexicon.js` (numbers, units, ~170 Kerala items, time words, verbs), `normalize.js` (skeleton spelling match + suffix stripping), `when.js` (dates/times), `parse.js` (rule extractor).
+- `server/`: `transcribe.js` (Gemini, then Sarvam), `llm.js` (askJSON: Gemini -> Groq -> Sarvam, with a hedge: a reader slower than LLM_HEDGE_MS=5 s gets the next one started alongside), `extract.js` (lists: prompt, lexicon hints, then `clean()` re-checks the answer), `compose.js` (email / note / rewrite prompts, with a Malayalam glossary and a date table), `providers.js` (keys, order, retries, `firstOf` with hedging).
+- Shop online (`src/lib/stores.js`, `OrderRows.jsx`): every store gets per-item search links (brand-aware terms: "maggi noodles", "matta rice 5 kg"). Zepto and Swiggy Instamart also get "Add all to cart" through their **official MCP servers** (`server/mcp.js`, `server/carts.js`, `api/cart.js`, `src/lib/cartlink.js`): OAuth with dynamic client registration + PKCE on the store's own phone/OTP page, tokens kept in the phone's localStorage, and a Gemini function-calling agent that searches and fills the cart. It never orders or pays: no order/checkout scopes are requested and `BLOCKED` withholds any tool named like order/checkout/pay. Both stores accept sign-in redirects to `http://localhost` only (checked 2026-10-09), so it works under `npm run dev`; usevoc.vercel.app needs Zepto (GitHub issue on zeptonow/mcp) and Swiggy (Builders Club production access) to approve it. Blinkit has no official route: never use the unofficial reverse-engineered Blinkit MCPs. Tested only against a mock store; no real Zepto/Instamart account has been run through it yet.
+- Notes can be added to (`addToNote` in server/compose.js): the AI writes only the new lines in the note's style, and only they write themselves live (`LiveText from=`).
+- "Created by Harinand" watermark under the tab bar (`.credit`), asked for by the user.
+- Notes are stored with `kind`: 'email', 'sticky', or lists (undefined/'lists'). To-do and Orders read only lists results.
+- The phone always runs the rule parser; `src/lib/pipeline.js` replaces its answer with the AI reader's when the server answers.
+
+## Rules
+- **UI follows the user's second reference (2026-10-08)**, which replaced the earlier terminal style: charcoal screens (Home, Orders) and sage screens (To-do, Notes); saturated cards (coral, periwinkle, mustard, ice, mint, cream) with ink text; Barlow Condensed 600 uppercase headings, DM Mono body; white pills with a dark chevron disc, round white arrow buttons, chips with a coloured dot, chat bubbles, a floating dark tab bar with an ice active tab. On desktop the screen is a rounded phone on a sage canvas. Components live in `src/components/bits.jsx` and `Icons.jsx`.
+- **Never tune the parser on `eval/holdout.jsonl`.** Tune on `eval/cases.jsonl`, then report holdout as the honest number. If a holdout failure prompts a fix, say so in README's results, or write a fresh holdout set.
+- Dates are computed in code (`when.js`), never trusted from the model alone: `settle()` in server/extract.js uses our date, and the model's am/pm only when ours was a guess.
+- Item quantities and units: model output passes through `clean()` (unit names, canonical item names via the lexicon, head noun).
+- Errors shown to people are plain sentences (`server/http.js`); provider errors stay in the server log.
+- Notes live only in localStorage; audio is never stored. Keep the Privacy section in Notes true if this changes.
+- Groq Whisper is opt-in only: asked for Malayalam it writes Gurmukhi script (checked 2026-10-08).
+- Speech model: gemini-3.5-flash, falling back to gemini-3.1-flash-lite on 429/503. Never gemini-3.5-flash-lite for speech: it drifts into Tamil script on Malayalam audio (2026-10-08). 3.5 Flash had a "high demand" 503 outage the same day.
+- Free tiers: Gemini Flash-Lite allows 15 requests/min, Groq gpt-oss-120b 8k tokens/min. Evals must pace (`--pace`) and the app retries 429s for up to 6 s.
+- This machine's network sometimes drops requests ("fetch failed"); `call()` retries once.

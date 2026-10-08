@@ -1,0 +1,7 @@
+{
+  "rewrites": [{ "source": "/share-target", "destination": "/api/share-fallback" }],
+  "functions": { "api/*.js": { "maxDuration": 60 } },
+  "headers": [
+    { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+  ]
+}

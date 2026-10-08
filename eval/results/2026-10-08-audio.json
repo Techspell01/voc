@@ -1,0 +1,755 @@
+{
+  "gemini": {
+    "cer": 0.1399180475339447,
+    "rules": 60,
+    "llm": 90,
+    "rows": [
+      {
+        "id": "a01",
+        "heard": "ചേട്ടാ 2 kilo അരി 1 kilo പഞ്ചസാര 1/2 kilo ചെറിയ ഉള്ളി പിന്നെ 10 മുട്ട വേണം കേട്ടോ",
+        "cer": 0.15294117647058825,
+        "rules": {
+          "id": "a01",
+          "domain": "shop",
+          "problems": [],
+          "items": {
+            "exp": 4,
+            "got": 4,
+            "tp": 4,
+            "qtyOk": 4
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        },
+        "llm": {
+          "id": "a01",
+          "domain": "shop",
+          "problems": [],
+          "items": {
+            "exp": 4,
+            "got": 4,
+            "tp": 4,
+            "qtyOk": 4
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a02",
+        "heard": "1 litre വെളിച്ചെണ്ണ 1/4 kilo മുളകുപൊടി 200 gram മഞ്ഞൾപ്പൊടി വൈകുന്നേരം 5 മണിക്ക് വന്ന് എടുക്കാം.",
+        "cer": 0.18947368421052632,
+        "rules": {
+          "id": "a02",
+          "domain": "shop",
+          "problems": [],
+          "items": {
+            "exp": 3,
+            "got": 3,
+            "tp": 3,
+            "qtyOk": 3
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 1,
+            "ok": 1
+          },
+          "exact": true
+        },
+        "llm": {
+          "id": "a02",
+          "domain": "shop",
+          "problems": [],
+          "items": {
+            "exp": 3,
+            "got": 3,
+            "tp": 3,
+            "qtyOk": 3
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 1,
+            "ok": 1
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a03",
+        "heard": "നാളെ രാവിലെ 10 കിലോ മട്ട അരിയും 5 കിലോ പഞ്ചസാരയും ഹോട്ടലിലേക്ക് എത്തിക്കണം.",
+        "cer": 0.09333333333333334,
+        "rules": {
+          "id": "a03",
+          "domain": "shop",
+          "problems": [],
+          "items": {
+            "exp": 2,
+            "got": 2,
+            "tp": 2,
+            "qtyOk": 2
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 1,
+            "ok": 1
+          },
+          "exact": true
+        },
+        "llm": {
+          "id": "a03",
+          "domain": "shop",
+          "problems": [],
+          "items": {
+            "exp": 2,
+            "got": 2,
+            "tp": 2,
+            "qtyOk": 2
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 1,
+            "ok": 1
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a04",
+        "heard": "3 packet പാൽ 1 dozen മുട്ട 2 bread",
+        "cer": 0.39473684210526316,
+        "rules": {
+          "id": "a04",
+          "domain": "shop",
+          "problems": [],
+          "items": {
+            "exp": 3,
+            "got": 3,
+            "tp": 3,
+            "qtyOk": 3
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        },
+        "llm": {
+          "id": "a04",
+          "domain": "shop",
+          "problems": [],
+          "items": {
+            "exp": 3,
+            "got": 3,
+            "tp": 3,
+            "qtyOk": 3
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a05",
+        "heard": "നാളെ രാവിലെ 10 മണിക്ക് അമ്മയുടെ doctor appointment ഉണ്ട് റിപ്പോർട്ടുകൾ എടുത്തു വെക്കണം",
+        "cer": 0.10810810810810811,
+        "rules": {
+          "id": "a05",
+          "domain": "family",
+          "problems": [
+            "missed todo /report/",
+            "extra todo \"Keep ripporttukal ready\""
+          ],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 1,
+            "got": 1,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 1,
+            "got": 1,
+            "tp": 1,
+            "dateChecks": 1,
+            "dateOk": 1,
+            "timeChecks": 1,
+            "timeOk": 1
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": false
+        },
+        "llm": {
+          "id": "a05",
+          "domain": "family",
+          "problems": [],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 1,
+            "got": 1,
+            "tp": 1,
+            "dateChecks": 1,
+            "dateOk": 1,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 1,
+            "got": 1,
+            "tp": 1,
+            "dateChecks": 1,
+            "dateOk": 1,
+            "timeChecks": 1,
+            "timeOk": 1
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a06",
+        "heard": "current bill അടക്കണം പിന്നെ അച്ഛനെ വിളിക്കണം",
+        "cer": 0.06818181818181818,
+        "rules": {
+          "id": "a06",
+          "domain": "family",
+          "problems": [],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 2,
+            "got": 2,
+            "tp": 2,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        },
+        "llm": {
+          "id": "a06",
+          "domain": "family",
+          "problems": [],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 2,
+            "got": 2,
+            "tp": 2,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a07",
+        "heard": "വെള്ളിയാഴ്ച വൈകുന്നേരം 5:30-ക്ക് മീറ്റിംഗ് ഉണ്ട്.",
+        "cer": 0.2608695652173913,
+        "rules": {
+          "id": "a07",
+          "domain": "family",
+          "problems": [
+            "missed event /meeting/",
+            "extra event \"Kku meettimgu\""
+          ],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 1,
+            "got": 1,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": false
+        },
+        "llm": {
+          "id": "a07",
+          "domain": "family",
+          "problems": [],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 1,
+            "got": 1,
+            "tp": 1,
+            "dateChecks": 1,
+            "dateOk": 1,
+            "timeChecks": 1,
+            "timeOk": 1
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a08",
+        "heard": "മോനെ വൈകുന്നേരം വരുമ്പോൾ ഒരു കിലോ പഞ്ചസാരയും രണ്ട് പാക്കറ്റ് പാലും വാങ്ങിക്കോ.",
+        "cer": 0.013888888888888888,
+        "rules": {
+          "id": "a08",
+          "domain": "family",
+          "problems": [],
+          "items": {
+            "exp": 2,
+            "got": 2,
+            "tp": 2,
+            "qtyOk": 2
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        },
+        "llm": {
+          "id": "a08",
+          "domain": "family",
+          "problems": [],
+          "items": {
+            "exp": 2,
+            "got": 2,
+            "tp": 2,
+            "qtyOk": 2
+          },
+          "todos": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a09",
+        "heard": "Rahul, നാളെ 11 മണിക്ക് ക്ലയന്റ് മീറ്റിംഗ് ഉണ്ട്. പ്രസന്റേഷൻ റെഡിയാക്കണം.",
+        "cer": 0.11764705882352941,
+        "rules": {
+          "id": "a09",
+          "domain": "work",
+          "problems": [
+            "missed todo /presentation/",
+            "missed event /meeting/",
+            "extra event \"Rahul klayantu meettimgu\""
+          ],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 1,
+            "got": 0,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 1,
+            "got": 1,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": false
+        },
+        "llm": {
+          "id": "a09",
+          "domain": "work",
+          "problems": [],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 1,
+            "got": 1,
+            "tp": 1,
+            "dateChecks": 1,
+            "dateOk": 1,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 1,
+            "got": 1,
+            "tp": 1,
+            "dateChecks": 1,
+            "dateOk": 1,
+            "timeChecks": 1,
+            "timeOk": 1
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": true
+        }
+      },
+      {
+        "id": "a10",
+        "heard": "അടുത്ത തിങ്കളാഴ്ച കല്യാണം ഉണ്ട്. അതിനു മുൻപ് ഗ്യാസ് ബുക്ക് ചെയ്യണം.",
+        "cer": 0,
+        "rules": {
+          "id": "a10",
+          "domain": "mixed",
+          "problems": [
+            "missed todo /gas/",
+            "extra todo \"Book munpu gyaasu\""
+          ],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 1,
+            "got": 1,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 1,
+            "got": 1,
+            "tp": 1,
+            "dateChecks": 1,
+            "dateOk": 1,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": false
+        },
+        "llm": {
+          "id": "a10",
+          "domain": "mixed",
+          "problems": [
+            "missed event /wedding|kalyan/",
+            "extra event \"Kalyaanam\""
+          ],
+          "items": {
+            "exp": 0,
+            "got": 0,
+            "tp": 0,
+            "qtyOk": 0
+          },
+          "todos": {
+            "exp": 1,
+            "got": 1,
+            "tp": 1,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "events": {
+            "exp": 1,
+            "got": 1,
+            "tp": 0,
+            "dateChecks": 0,
+            "dateOk": 0,
+            "timeChecks": 0,
+            "timeOk": 0
+          },
+          "order": {
+            "checks": 0,
+            "ok": 0
+          },
+          "exact": false
+        }
+      }
+    ]
+  }
+}

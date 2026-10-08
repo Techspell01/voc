@@ -1,0 +1,30 @@
+{"id":"h01","domain":"shop","text":"chechi oru 3 kilo ponni ari, rand packet milma, kaal kilo cheriyulli, pinne oru chakka undengil athum","items":[["Ponni rice",3,"kg"],["Milk",2,"packet"],["Shallots",0.25,"kg"],["Jackfruit",1,null]]}
+{"id":"h02","domain":"shop","text":"Bro 2 kg broiler chicken curry cut, 1 kg pothirachi, 4 pcs kozhimutta","items":[["Chicken",2,"kg"],["Beef",1,"kg"],["Egg",4,"piece"]]}
+{"id":"h03","domain":"shop","text":"എനിക്ക് അഞ്ച് കിലോ മട്ട അരി, രണ്ട് ലിറ്റർ വെളിച്ചെണ്ണ, ഒരു കിലോ ഉഴുന്ന് വേണം","items":[["Matta rice",5,"kg"],["Coconut oil",2,"l"],["Urad dal",1,"kg"]]}
+{"id":"h04","domain":"shop","text":"vendakka arakilo, vazhuthananga kaal kilo, pavakka randennam, muringakka 4 ennam","items":[["Okra",0.5,"kg"],["Brinjal",0.25,"kg"],["Bitter gourd",2,"piece"],["Drumstick",4,"piece"]]}
+{"id":"h05","domain":"shop","text":"Today evening 6 nu munne 10 kg sugar and 5 kg atta deliver cheyyanam to the bakery","items":[["Sugar",10,"kg"],["Wheat flour",5,"kg"]],"order":{"date":"2026-10-08","time":"18:00"}}
+{"id":"h06","domain":"shop","text":"chetta njan innale order cheytha thakkali cancel cheyyu, pakaram 2 kilo savala ayakku","items":[["Onion",2,"kg"]]}
+{"id":"h07","domain":"shop","text":"half kilo karimeen, one kilo ayala, kurachu kudampuli","items":[["Pearl spot",0.5,"kg"],["Mackerel",1,"kg"],["Kudampuli",null,null]]}
+{"id":"h08","domain":"shop","text":"oru 25 kilo chaakku ari venam, ponni allenkil jaya, nale vaikittu ethiyal mathi","items":[["Rice|Ponni rice",25,"kg"]],"order":{"date":"2026-10-09"}}
+{"id":"h09","domain":"shop","text":"Toothpaste 2, shampoo sachet 10, Hamam soap 3, Vim bar 2","items":[["Toothpaste",2,null],["Shampoo",10,"packet"],["Soap",3,null],["Dishwash bar",2,null]]}
+{"id":"h10","domain":"shop","text":"മുന്നൂറ് രൂപയ്ക്ക് ചെമ്മീൻ, ഒരു കിലോ ചാള","items":[["Prawns",300,"₹"],["Sardine",1,"kg"]]}
+{"id":"h11","domain":"family","text":"Achante pension papers nale bank-il kodukkanam, raavile 10 manikku munpu","todos":[{"kw":"pension|paper","date":"2026-10-09","time":"10:00"}]}
+{"id":"h12","domain":"family","text":"Ee vyazhazhcha alla, adutha vyazhazhcha aanu Meenu-vinte nischayam","events":[{"kw":"engagement|nis.?chayam|betroth","date":"2026-10-15"}]}
+{"id":"h13","domain":"family","text":"Kuttikalude school fees 31-nu munpu adakkanam","todos":[{"kw":"fee","date":"2026-10-31"}]}
+{"id":"h14","domain":"family","text":"innu vaikunneram cake vaangikkanam, Appuppante birthday aanu nale","items":[["Cake",null,null]],"events":[{"kw":"birthday","date":"2026-10-09"}]}
+{"id":"h15","domain":"family","text":"Ammede blood test report collect cheyyanam, lab 7 manikku adakkum","todos":[{"kw":"report"}]}
+{"id":"h16","domain":"family","text":"mattannal raavile 6 manikku Kochi airport-il ninnu Chettane pick cheyyanam","todos":[{"kw":"pick|chettan","date":"2026-10-10","time":"06:00"}]}
+{"id":"h17","domain":"family","text":"Velliyazhcha school-il annual day aanu, mol-nu white dress vaangikkanam","events":[{"kw":"annual","date":"2026-10-09"}],"todos":[{"kw":"dress"}]}
+{"id":"h18","domain":"family","text":"നാളെ ഉച്ചയ്ക്ക് രണ്ട് മണിക്ക് അമ്മൂമ്മയെ ഡോക്ടറെ കാണിക്കണം","events":[{"kw":"doctor|ammooma|ammumma","date":"2026-10-09","time":"14:00"}]}
+{"id":"h19","domain":"family","text":"power cut aanu, inverter nokkanam ennu electrician-ne vilichu parayanam","todos":[{"kw":"electrician|inverter"}]}
+{"id":"h20","domain":"family","text":"next week monday mutual fund SIP date aanu, account-il kaash idanam","todos":[{"kw":"money|kaash|account|sip","date":"2026-10-12"}]}
+{"id":"h21","domain":"work","text":"Arun, innu 5 manikku munpu quotation mail cheyyanam, pinne nale 11-nu site visit und","todos":[{"kw":"quotation","date":"2026-10-08","time":"17:00"}],"events":[{"kw":"site|visit","date":"2026-10-09","time":"11:00"}]}
+{"id":"h22","domain":"work","text":"meeting postpone aayi, ippo friday 3 pm","events":[{"kw":"meeting","date":"2026-10-09","time":"15:00"}]}
+{"id":"h23","domain":"work","text":"Customer-inte cheque 15-aam theethi bank-il deposit cheyyanam","todos":[{"kw":"cheque|deposit","date":"2026-10-15"}]}
+{"id":"h24","domain":"work","text":"GST return filing 20 October-nu munpu","todos":[{"kw":"gst","date":"2026-10-20"}]}
+{"id":"h25","domain":"work","text":"oru 50 visiting card print cheyyikkanam, logo update cheythittu","todos":[{"kw":"card|print"}]}
+{"id":"h26","domain":"work","text":"nale off aanu, kada thurakkilla","items":[],"todos":[],"events":[]}
+{"id":"h27","domain":"mixed","text":"Chetta, 2 kilo mathi venam. pinne vaikittu 7 manikku temple-il pooja und, varumbo pookkal kondu varanam","items":[["Sardine",2,"kg"]],"events":[{"kw":"pooja|temple","date":"2026-10-08","time":"19:00"}],"todos":[{"kw":"flower|pookkal"}]}
+{"id":"h28","domain":"mixed","text":"1 kg kappa, 1/2 kg beef. Amma vilichal parayanam njan late aakumennu","items":[["Tapioca",1,"kg"],["Beef",0.5,"kg"]],"todos":[{"kw":"amma|tell"}]}
+{"id":"h29","domain":"mixed","text":"ok noted 👍","items":[],"todos":[],"events":[]}
+{"id":"h30","domain":"mixed","text":"Sheri, appo naale 4 manikku kaanam. Reports okke kond varanam","events":[{"kw":"meet","date":"2026-10-09","time":"16:00"}],"todos":[{"kw":"report","date":"2026-10-09"}]}

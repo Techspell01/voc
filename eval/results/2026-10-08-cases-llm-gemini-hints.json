@@ -1,0 +1,3564 @@
+{
+  "engine": "llm",
+  "set": "cases",
+  "today": "2026-10-08",
+  "summary": {
+    "notes": 59,
+    "exact": 89.83050847457628,
+    "items": {
+      "precision": 98.71794871794872,
+      "recall": 97.46835443037975,
+      "f1": 98.08917197452229,
+      "qty": 100
+    },
+    "todos": {
+      "precision": 95.83333333333333,
+      "recall": 92,
+      "f1": 93.87755102040816,
+      "date": 100,
+      "time": 50
+    },
+    "events": {
+      "precision": 100,
+      "recall": 94.11764705882354,
+      "f1": 96.96969696969697,
+      "date": 100,
+      "time": 100
+    },
+    "orderWhen": 100
+  },
+  "results": [
+    {
+      "id": "shop-01",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 4,
+        "got": 4,
+        "tp": 4,
+        "qtyOk": 4
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Rice",
+            "said": "randu kilo ari",
+            "cat": "staple",
+            "qty": 2,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Sugar",
+            "said": "oru kilo panchasara",
+            "cat": "staple",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Shallots",
+            "said": "arakilo cheriya ulli",
+            "cat": "veg",
+            "qty": 0.5,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i3",
+            "name": "Egg",
+            "said": "pathu mutta venam",
+            "cat": "dairy",
+            "qty": 10,
+            "unit": "piece",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "Chetta, randu kilo ari, oru kilo panchasara, arakilo cheriya ulli pinne pathu mutta venam ketto"
+      }
+    },
+    {
+      "id": "shop-02",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 4,
+        "got": 4,
+        "tp": 4,
+        "qtyOk": 4
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 1,
+        "ok": 1
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Rice",
+            "said": "ari 5 kilo",
+            "cat": "staple",
+            "qty": 5,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Tomato",
+            "said": "thakkali onnara kilo",
+            "cat": "veg",
+            "qty": 1.5,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Milk",
+            "said": "paalum",
+            "cat": "dairy",
+            "qty": null,
+            "unit": null,
+            "known": true
+          },
+          {
+            "id": "i3",
+            "name": "Egg",
+            "said": "muttayum",
+            "cat": "dairy",
+            "qty": null,
+            "unit": null,
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-09",
+          "time": "09:00",
+          "approx": true
+        },
+        "latin": "ari 5 kilo, thakkali onnara kilo, paalum muttayum venam. nale raavile ethikkanam"
+      }
+    },
+    {
+      "id": "shop-03",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Curry leaves",
+            "said": "nooru roopaykku kariveppila",
+            "cat": "veg",
+            "qty": 100,
+            "unit": "₹",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Noodles",
+            "said": "2 packet maggi",
+            "cat": "bakery",
+            "qty": 2,
+            "unit": "packet",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Surf excel",
+            "said": "oru Surf excel",
+            "cat": "other",
+            "qty": 1,
+            "unit": "piece",
+            "known": false
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "nooru roopaykku kariveppila, 2 packet maggi, oru Surf excel"
+      }
+    },
+    {
+      "id": "shop-04",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 1,
+        "ok": 1
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Coconut oil",
+            "said": "oru litre velichenna",
+            "cat": "oil",
+            "qty": 1,
+            "unit": "l",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Chilli powder",
+            "said": "kaal kilo mulakupodi",
+            "cat": "spice",
+            "qty": 0.25,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Turmeric powder",
+            "said": "200 gram manjal podi",
+            "cat": "spice",
+            "qty": 200,
+            "unit": "g",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-08",
+          "time": "17:00",
+          "approx": false
+        },
+        "latin": "Hello chechi, oru litre velichenna, kaal kilo mulakupodi, 200 gram manjal podi. vaikunneram 5 manikku vannu edukkam"
+      }
+    },
+    {
+      "id": "shop-05",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Milk",
+            "said": "moonnu paakkattu paal",
+            "cat": "dairy",
+            "qty": 3,
+            "unit": "packet",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Egg",
+            "said": "oru dasan mutta",
+            "cat": "dairy",
+            "qty": 1,
+            "unit": "dozen",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Bread",
+            "said": "oru bredu",
+            "cat": "bakery",
+            "qty": 1,
+            "unit": "piece",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "moonnu paakkattu paal, oru dasan mutta, oru bredu"
+      }
+    },
+    {
+      "id": "shop-06",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Chicken",
+            "said": "1 kg chicken",
+            "cat": "meat",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Beef",
+            "said": "half kg beef",
+            "cat": "meat",
+            "qty": 0.5,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Milk",
+            "said": "2 packet milma",
+            "cat": "dairy",
+            "qty": 2,
+            "unit": "packet",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "1 kg chicken, half kg beef, 2 packet milma"
+      }
+    },
+    {
+      "id": "shop-07",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "qtyOk": 2
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Sardine",
+            "said": "oru kilo mathi",
+            "cat": "fish",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Prawns",
+            "said": "arakilo chemmeen",
+            "cat": "fish",
+            "qty": 0.5,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "Ikka, oru kilo mathi, arakilo chemmeen. curry-kku vendi aanu, clean cheythu tharanam"
+      }
+    },
+    {
+      "id": "shop-08",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 5,
+        "got": 5,
+        "tp": 5,
+        "qtyOk": 5
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Onion",
+            "said": "savala 2 kilo",
+            "cat": "veg",
+            "qty": 2,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Potato",
+            "said": "urulakizhangu 1 kilo",
+            "cat": "veg",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Ginger",
+            "said": "inji kaal kilo",
+            "cat": "veg",
+            "qty": 0.25,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i3",
+            "name": "Garlic",
+            "said": "veluthulli kaal kilo",
+            "cat": "veg",
+            "qty": 0.25,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i4",
+            "name": "Green chilli",
+            "said": "pachamulaku 100 gram",
+            "cat": "veg",
+            "qty": 100,
+            "unit": "g",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "savala 2 kilo, urulakizhangu 1 kilo, inji kaal kilo, veluthulli kaal kilo, pachamulaku 100 gram"
+      }
+    },
+    {
+      "id": "shop-09",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 4,
+        "got": 4,
+        "tp": 4,
+        "qtyOk": 4
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Rice flour",
+            "said": "randu packet aripodi",
+            "cat": "staple",
+            "qty": 2,
+            "unit": "packet",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Rava",
+            "said": "oru packet rava",
+            "cat": "staple",
+            "qty": 1,
+            "unit": "packet",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Wheat flour",
+            "said": "oru kilo atta",
+            "cat": "staple",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i3",
+            "name": "Sunflower oil",
+            "said": "5 litre sunflower oil",
+            "cat": "oil",
+            "qty": 5,
+            "unit": "l",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "randu packet aripodi, oru packet rava, oru kilo atta pinne 5 litre sunflower oil"
+      }
+    },
+    {
+      "id": "shop-10",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 4,
+        "got": 4,
+        "tp": 4,
+        "qtyOk": 4
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 1,
+        "ok": 1
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Matta rice",
+            "said": "3 kg matta ari",
+            "cat": "other",
+            "qty": 3,
+            "unit": "kg",
+            "known": false
+          },
+          {
+            "id": "i1",
+            "name": "Toor dal",
+            "said": "1 kg thuvara parippu",
+            "cat": "staple",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Urad dal",
+            "said": "500 g uzhunnu",
+            "cat": "staple",
+            "qty": 500,
+            "unit": "g",
+            "known": true
+          },
+          {
+            "id": "i3",
+            "name": "Chickpeas",
+            "said": "1 kg kadala",
+            "cat": "staple",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-10",
+          "time": null,
+          "approx": false
+        },
+        "latin": "Order: 3 kg matta ari, 1 kg thuvara parippu, 500 g uzhunnu, 1 kg kadala. Saturday delivery venam"
+      }
+    },
+    {
+      "id": "shop-11",
+      "domain": "shop",
+      "problems": [
+        "extra item Egg"
+      ],
+      "items": {
+        "exp": 1,
+        "got": 2,
+        "tp": 1,
+        "qtyOk": 1
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": false,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Egg",
+            "said": "mutta venda",
+            "cat": "dairy",
+            "qty": null,
+            "unit": null,
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Milk",
+            "said": "paal randu packet koode",
+            "cat": "dairy",
+            "qty": 2,
+            "unit": "packet",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "mutta venda, paal randu packet koode"
+      }
+    },
+    {
+      "id": "shop-12",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "qtyOk": 1
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Jaggery",
+            "said": "pakaram sharkkara oru kilo",
+            "cat": "staple",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "chetta innale paranja list-il ninnu panchasara venda, pakaram sharkkara oru kilo"
+      }
+    },
+    {
+      "id": "shop-13",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Banana",
+            "said": "Oru dozen pazham",
+            "cat": "fruit",
+            "qty": 1,
+            "unit": "dozen",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Apple",
+            "said": "2 kilo apple",
+            "cat": "fruit",
+            "qty": 2,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Grapes",
+            "said": "oru kilo munthiri",
+            "cat": "fruit",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "Oru dozen pazham, 2 kilo apple, oru kilo munthiri"
+      }
+    },
+    {
+      "id": "shop-14",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Coconut",
+            "said": "pathu ennam thenga",
+            "cat": "veg",
+            "qty": 10,
+            "unit": "piece",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Spinach",
+            "said": "randu kettu cheera",
+            "cat": "veg",
+            "qty": 2,
+            "unit": "bundle",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Coriander leaves",
+            "said": "oru kettu malliyila",
+            "cat": "veg",
+            "qty": 1,
+            "unit": "bundle",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "pathu ennam thenga, randu kettu cheera, oru kettu malliyila"
+      }
+    },
+    {
+      "id": "shop-15",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Toothpaste",
+            "said": "2 Colgate paste",
+            "cat": "home",
+            "qty": 2,
+            "unit": "piece",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Soap",
+            "said": "4 Lifebuoy soap",
+            "cat": "home",
+            "qty": 4,
+            "unit": "piece",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Washing powder",
+            "said": "oru packet washing powder",
+            "cat": "home",
+            "qty": 1,
+            "unit": "packet",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "2 Colgate paste, 4 Lifebuoy soap, oru packet washing powder"
+      }
+    },
+    {
+      "id": "shop-16",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Beans",
+            "said": "ara kilo beensu",
+            "cat": "veg",
+            "qty": 0.5,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Carrot",
+            "said": "kaal kilo kaarattu",
+            "cat": "veg",
+            "qty": 0.25,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Cabbage",
+            "said": "oru kaabeju",
+            "cat": "veg",
+            "qty": 1,
+            "unit": "piece",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "ara kilo beensu, kaal kilo kaarattu, oru kaabeju"
+      }
+    },
+    {
+      "id": "shop-17",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "qtyOk": 2
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 1,
+        "ok": 1
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Rice",
+            "said": "20 kilo ari",
+            "cat": "staple",
+            "qty": 20,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Sugar",
+            "said": "5 kilo panchasara",
+            "cat": "staple",
+            "qty": 5,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-09",
+          "time": "12:00",
+          "approx": false
+        },
+        "latin": "nale uchakku munpu 20 kilo ari, 5 kilo panchasara ayakkanam, hotel-ilekku aanu"
+      }
+    },
+    {
+      "id": "shop-18",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "qtyOk": 1
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Gas cylinder",
+            "said": "2 cylinder gas",
+            "cat": "home",
+            "qty": 2,
+            "unit": "piece",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-08",
+          "time": null,
+          "approx": false
+        },
+        "latin": "kada adakkunnathinu munpu 2 cylinder gas ethikkanam"
+      }
+    },
+    {
+      "id": "shop-19",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Butter",
+            "said": "1/2 kg butter",
+            "cat": "dairy",
+            "qty": 0.5,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Bread",
+            "said": "2 packet bread",
+            "cat": "bakery",
+            "qty": 2,
+            "unit": "packet",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Cheese",
+            "said": "1 cheese",
+            "cat": "dairy",
+            "qty": 1,
+            "unit": "piece",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "1/2 kg butter, 2 packet bread, 1 cheese"
+      }
+    },
+    {
+      "id": "shop-20",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "qtyOk": 1
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 1,
+        "ok": 1
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Chicken",
+            "said": "oru kilo kozhi",
+            "cat": "meat",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-08",
+          "time": "12:00",
+          "approx": false
+        },
+        "latin": "oru kilo kozhi, curry cut aakki tharanam. 12 manikku munpu venam"
+      }
+    },
+    {
+      "id": "shop-21",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Tomato",
+            "said": "2kg tomato",
+            "cat": "veg",
+            "qty": 2,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Onion",
+            "said": "1kg onion",
+            "cat": "veg",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Green chilli",
+            "said": "1/2kg green chilli",
+            "cat": "veg",
+            "qty": 0.5,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "2kg tomato 1kg onion 1/2kg green chilli"
+      }
+    },
+    {
+      "id": "shop-22",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 1,
+        "ok": 1
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Chicken",
+            "said": "1 kilo kozhi irachi",
+            "cat": "meat",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Beef",
+            "said": "1/2 kilo beef",
+            "cat": "meat",
+            "qty": 0.5,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Egg",
+            "said": "1 dozen mutta",
+            "cat": "dairy",
+            "qty": 1,
+            "unit": "dozen",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-08",
+          "time": "11:00",
+          "approx": false
+        },
+        "latin": "chetta 1 kilo kozhi irachi, 1/2 kilo beef, 1 dozen mutta. 11 mani aakumbo deliver cheyyamo"
+      }
+    },
+    {
+      "id": "shop-23",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 3,
+        "got": 3,
+        "tp": 3,
+        "qtyOk": 3
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Onion",
+            "said": "oru kilo savaala",
+            "cat": "veg",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Tomato",
+            "said": "ara kilo thakkaali",
+            "cat": "veg",
+            "qty": 0.5,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Coconut",
+            "said": "randu thenga",
+            "cat": "veg",
+            "qty": 2,
+            "unit": "piece",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "oru kilo savaala, ara kilo thakkaali, pinne randu thenga"
+      }
+    },
+    {
+      "id": "shop-24",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "qtyOk": 2
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 1,
+        "ok": 1
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Cement",
+            "said": "50 bag cement",
+            "cat": "build",
+            "qty": 50,
+            "unit": "bag",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Sand",
+            "said": "2 load manal",
+            "cat": "build",
+            "qty": 2,
+            "unit": "load",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-10",
+          "time": "09:00",
+          "approx": true
+        },
+        "latin": "Site-il 50 bag cement, 2 load manal venam, mattannal raavile"
+      }
+    },
+    {
+      "id": "shop-25",
+      "domain": "shop",
+      "problems": [],
+      "items": {
+        "exp": 4,
+        "got": 4,
+        "tp": 4,
+        "qtyOk": 4
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Coconut oil",
+            "said": "randu kuppi velichenna",
+            "cat": "oil",
+            "qty": 2,
+            "unit": "bottle",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Tea powder",
+            "said": "oru packet chaya podi",
+            "cat": "staple",
+            "qty": 1,
+            "unit": "packet",
+            "known": true
+          },
+          {
+            "id": "i2",
+            "name": "Coffee powder",
+            "said": "kaal kilo kaapi podi",
+            "cat": "staple",
+            "qty": 0.25,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i3",
+            "name": "Sugar",
+            "said": "anju kilo panchasara",
+            "cat": "staple",
+            "qty": 5,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "randu kuppi velichenna, oru packet chaya podi, kaal kilo kaapi podi, anju kilo panchasara"
+      }
+    },
+    {
+      "id": "fam-01",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Keep Amma's reports ready",
+            "said": "reports eduthu vekkanam",
+            "date": "2026-10-09",
+            "time": "10:00"
+          }
+        ],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Amma's doctor appointment",
+            "said": "nale raavile 10 manikku ammede doctor appointment und",
+            "date": "2026-10-09",
+            "time": "10:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "nale raavile 10 manikku ammede doctor appointment und, reports eduthu vekkanam"
+      }
+    },
+    {
+      "id": "fam-02",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Pay current bill",
+            "said": "Current bill adakkanam",
+            "date": null,
+            "time": null
+          },
+          {
+            "id": "t1",
+            "title": "Call Achan",
+            "said": "achane vilikkanam",
+            "date": null,
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "Current bill adakkanam, pinne achane vilikkanam"
+      }
+    },
+    {
+      "id": "fam-03",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Meeting",
+            "said": "velliyazhcha vaikunneram anchara manikku meeting und",
+            "date": "2026-10-09",
+            "time": "17:30",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "velliyazhcha vaikunneram anchara manikku meeting und"
+      }
+    },
+    {
+      "id": "fam-04",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Kalyanam",
+            "said": "adutha thinkalazhcha kalyanam und, marakkalle",
+            "date": "2026-10-12",
+            "time": null,
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "adutha thinkalazhcha kalyanam und, marakkalle"
+      }
+    },
+    {
+      "id": "fam-05",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Buy medicine for Amma",
+            "said": "ammakku marunnu vaanganam",
+            "date": null,
+            "time": null
+          },
+          {
+            "id": "t1",
+            "title": "Pick up Kunju from school",
+            "said": "kuttiye 4 manikku school-il ninnu koottanam",
+            "date": "2026-10-08",
+            "time": "16:00"
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "ammakku marunnu vaanganam, kuttiye 4 manikku school-il ninnu koottanam"
+      }
+    },
+    {
+      "id": "fam-06",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "qtyOk": 2
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Sugar",
+            "said": "oru kilo panchasaarayum",
+            "cat": "staple",
+            "qty": 1,
+            "unit": "kg",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Milk",
+            "said": "randu paakkattu paalum",
+            "cat": "dairy",
+            "qty": 2,
+            "unit": "packet",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [],
+        "order": {
+          "date": "2026-10-08",
+          "time": "17:00",
+          "approx": true
+        },
+        "latin": "mole, vaikunneram varumbol oru kilo panchasaarayum randu paakkattu paalum vaangikko"
+      }
+    },
+    {
+      "id": "fam-07",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Ravi's birthday party",
+            "said": "innu rathri 8 manikku Ravi-yude birthday party und",
+            "date": "2026-10-08",
+            "time": "20:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "innu rathri 8 manikku Ravi-yude birthday party und"
+      }
+    },
+    {
+      "id": "fam-08",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Book gas at 9846012345",
+            "said": "gas booking cheyyanam, number 9846012345",
+            "date": null,
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "gas booking cheyyanam, number 9846012345"
+      }
+    },
+    {
+      "id": "fam-09",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Pay Kuri",
+            "said": "adutha masam 5-aam theethi kuri adakkanam",
+            "date": "2026-11-05",
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "adutha masam 5-aam theethi kuri adakkanam"
+      }
+    },
+    {
+      "id": "fam-10",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Clean house",
+            "said": "ee shaniyazhcha veedu clean cheyyanam",
+            "date": "2026-10-10",
+            "time": null
+          }
+        ],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Guests visiting",
+            "said": "guests varunnund njayarazhcha",
+            "date": "2026-10-11",
+            "time": null,
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "ee shaniyazhcha veedu clean cheyyanam, guests varunnund njayarazhcha"
+      }
+    },
+    {
+      "id": "fam-11",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Keep Kunju's vaccination card ready",
+            "said": "card eduthu vekkanam",
+            "date": "2026-10-09",
+            "time": "11:00"
+          }
+        ],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Kunju's vaccination",
+            "said": "Kunjinte vaccination nale 11 manikku aanu",
+            "date": "2026-10-09",
+            "time": "11:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "Kunjinte vaccination nale 11 manikku aanu, card eduthu vekkanam"
+      }
+    },
+    {
+      "id": "fam-12",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Mol's PTA meeting",
+            "said": "Mol-nte PTA meeting velliyazhcha 3 manikku",
+            "date": "2026-10-09",
+            "time": "15:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "Mol-nte PTA meeting velliyazhcha 3 manikku"
+      }
+    },
+    {
+      "id": "fam-13",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Dinner at Ammavan's house",
+            "said": "naale vaikunneram ezhu manikku ammaavante veettil dinner undu",
+            "date": "2026-10-09",
+            "time": "19:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "naale vaikunneram ezhu manikku ammaavante veettil dinner undu"
+      }
+    },
+    {
+      "id": "fam-14",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Go to Guruvayoor temple",
+            "said": "Mattannal Guruvayoor ambalathil pokanam, raavile 5 manikku irangam",
+            "date": "2026-10-10",
+            "time": "05:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "Mattannal Guruvayoor ambalathil pokanam, raavile 5 manikku irangam"
+      }
+    },
+    {
+      "id": "fam-15",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Pick up Achan from station",
+            "said": "station-il poyi koottanam",
+            "date": "2026-10-09",
+            "time": "18:30"
+          }
+        ],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Achan arriving",
+            "said": "Achan nale ethum, 6.30-nte trainil",
+            "date": "2026-10-09",
+            "time": "18:30",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "Achan nale ethum, 6.30-nte trainil. station-il poyi koottanam"
+      }
+    },
+    {
+      "id": "fam-16",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Exam",
+            "said": "mattannal exam und 10 manikku",
+            "date": "2026-10-10",
+            "time": "10:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "Nale class illa, mattannal exam und 10 manikku"
+      }
+    },
+    {
+      "id": "fam-17",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Ammayi coming for lunch",
+            "said": "Ammayi vilichirunnu, sunday lunch-nu varum ennu paranju",
+            "date": "2026-10-11",
+            "time": "13:00",
+            "approx": true
+          }
+        ],
+        "order": null,
+        "latin": "Ammayi vilichirunnu, sunday lunch-nu varum ennu paranju"
+      }
+    },
+    {
+      "id": "fam-18",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Pay water bill",
+            "said": "nale raavile thanne vellam bill adakkanam",
+            "date": "2026-10-09",
+            "time": "09:00"
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "nale raavile thanne vellam bill adakkanam, illel connection cut aakum"
+      }
+    },
+    {
+      "id": "fam-19",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Buy Achan's medicine from medical shop",
+            "said": "achchhante gulika theernnu, naale medikkal shoppil ninnu vaanganam",
+            "date": "2026-10-09",
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "achchhante gulika theernnu, naale medikkal shoppil ninnu vaanganam"
+      }
+    },
+    {
+      "id": "fam-20",
+      "domain": "family",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [],
+        "order": null,
+        "latin": "ok chetta"
+      }
+    },
+    {
+      "id": "work-01",
+      "domain": "work",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Make presentation ready for client meeting",
+            "said": "presentation ready aakkanam",
+            "date": "2026-10-09",
+            "time": "10:00"
+          }
+        ],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Client meeting",
+            "said": "client meeting und",
+            "date": "2026-10-09",
+            "time": "10:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "Rahul, nale 10 manikku client meeting und, presentation ready aakkanam"
+      }
+    },
+    {
+      "id": "work-02",
+      "domain": "work",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "dateChecks": 2,
+        "dateOk": 2,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Send invoice to client",
+            "said": "invoice ellam innu thanne client-inu ayakkanam",
+            "date": "2026-10-08",
+            "time": null
+          },
+          {
+            "id": "t1",
+            "title": "File GST",
+            "said": "GST file cheyyanam 20th-nu munpu",
+            "date": "2026-10-20",
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "invoice ellam innu thanne client-inu ayakkanam, pinne GST file cheyyanam 20th-nu munpu"
+      }
+    },
+    {
+      "id": "work-03",
+      "domain": "work",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Call plumber to check motor",
+            "said": "Plumber-ne vilichu motor nokkan parayanam",
+            "date": null,
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "Plumber-ne vilichu motor nokkan parayanam"
+      }
+    },
+    {
+      "id": "work-04",
+      "domain": "work",
+      "problems": [
+        "extra todo \"Send Zoom link for Bangalore team call\""
+      ],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 1,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": false,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Send Zoom link for Bangalore team call",
+            "said": "Thursday 4 PM zoom call with the Bangalore team, link ayachu tharam",
+            "date": "2026-10-15",
+            "time": "16:00"
+          }
+        ],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Zoom call with the Bangalore team",
+            "said": "Thursday 4 PM zoom call with the Bangalore team, link ayachu tharam",
+            "date": "2026-10-15",
+            "time": "16:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "Thursday 4 PM zoom call with the Bangalore team, link ayachu tharam"
+      }
+    },
+    {
+      "id": "work-05",
+      "domain": "work",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Credit staff salary",
+            "said": "staff-inte salary 7-aam theethikku munpu credit cheyyanam",
+            "date": "2026-11-07",
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "staff-inte salary 7-aam theethikku munpu credit cheyyanam"
+      }
+    },
+    {
+      "id": "work-06",
+      "domain": "work",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Call delivery boy and inform 3 orders are pending",
+            "said": "Delivery boy-ne vilichu 3 order pending aanennu parayanam",
+            "date": null,
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "Delivery boy-ne vilichu 3 order pending aanennu parayanam"
+      }
+    },
+    {
+      "id": "work-07",
+      "domain": "work",
+      "problems": [
+        "error: all providers failed (gemini 0)"
+      ],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": false,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [],
+        "error": "all providers failed (gemini 0)"
+      }
+    },
+    {
+      "id": "work-08",
+      "domain": "work",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Bring ID card",
+            "said": "ID card marakkalle",
+            "date": "2026-10-09",
+            "time": null
+          }
+        ],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Reach office",
+            "said": "naale office-il 9.30-nu ethanam",
+            "date": "2026-10-09",
+            "time": "09:30",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "naale office-il 9.30-nu ethanam, ID card marakkalle"
+      }
+    },
+    {
+      "id": "work-09",
+      "domain": "work",
+      "problems": [],
+      "items": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "qtyOk": 2
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Biscuit",
+            "said": "10 box biscuit",
+            "cat": "bakery",
+            "qty": 10,
+            "unit": "box",
+            "known": true
+          },
+          {
+            "id": "i1",
+            "name": "Soap",
+            "said": "5 box soap",
+            "cat": "home",
+            "qty": 5,
+            "unit": "box",
+            "known": true
+          }
+        ],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Stock check",
+            "said": "stock check cheyyanam",
+            "date": null,
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "stock check cheyyanam, 10 box biscuit, 5 box soap order cheyyanam"
+      }
+    },
+    {
+      "id": "work-10",
+      "domain": "work",
+      "problems": [
+        "error: all providers failed (gemini 0)",
+        "missed todo /service|vehicle/",
+        "missed todo /insurance/"
+      ],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 2,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": false,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [],
+        "error": "all providers failed (gemini 0)"
+      }
+    },
+    {
+      "id": "mix-01",
+      "domain": "mixed",
+      "problems": [
+        "error: all providers failed (gemini 0)",
+        "missed item Rice",
+        "missed item Cake",
+        "missed event /birthday/"
+      ],
+      "items": {
+        "exp": 2,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": false,
+      "output": {
+        "items": [],
+        "todos": [],
+        "events": [],
+        "error": "all providers failed (gemini 0)"
+      }
+    },
+    {
+      "id": "mix-02",
+      "domain": "mixed",
+      "problems": [],
+      "items": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "qtyOk": 1
+      },
+      "todos": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 1
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Tomato",
+            "said": "randu kilo thakkaali vaanganam",
+            "cat": "veg",
+            "qty": 2,
+            "unit": "kg",
+            "known": true
+          }
+        ],
+        "todos": [],
+        "events": [
+          {
+            "id": "e0",
+            "title": "Meeting",
+            "said": "naale raavile 10 manikku meeting undu",
+            "date": "2026-10-09",
+            "time": "10:00",
+            "approx": false
+          }
+        ],
+        "order": null,
+        "latin": "naale raavile 10 manikku meeting undu. randu kilo thakkaali vaanganam"
+      }
+    },
+    {
+      "id": "mix-03",
+      "domain": "mixed",
+      "problems": [],
+      "items": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "qtyOk": 0
+      },
+      "todos": {
+        "exp": 2,
+        "got": 2,
+        "tp": 2,
+        "dateChecks": 2,
+        "dateOk": 2,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": true,
+      "output": {
+        "items": [],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Submit file",
+            "said": "file submit cheyyanam nale",
+            "date": "2026-10-09",
+            "time": null
+          },
+          {
+            "id": "t1",
+            "title": "Pay rent",
+            "said": "15th theethi rent adakkanam",
+            "date": "2026-10-15",
+            "time": null
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "file submit cheyyanam nale, pinne 15th theethi rent adakkanam"
+      }
+    },
+    {
+      "id": "mix-04",
+      "domain": "mixed",
+      "problems": [
+        "todo /phone|call|ammayi/ time: want 19:00, got 07:00"
+      ],
+      "items": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "qtyOk": 1
+      },
+      "todos": {
+        "exp": 1,
+        "got": 1,
+        "tp": 1,
+        "dateChecks": 1,
+        "dateOk": 1,
+        "timeChecks": 1,
+        "timeOk": 0
+      },
+      "events": {
+        "exp": 0,
+        "got": 0,
+        "tp": 0,
+        "dateChecks": 0,
+        "dateOk": 0,
+        "timeChecks": 0,
+        "timeOk": 0
+      },
+      "order": {
+        "checks": 0,
+        "ok": 0
+      },
+      "exact": false,
+      "output": {
+        "items": [
+          {
+            "id": "i0",
+            "name": "Milk",
+            "said": "oru packet paal",
+            "cat": "dairy",
+            "qty": 1,
+            "unit": "packet",
+            "known": true
+          }
+        ],
+        "todos": [
+          {
+            "id": "t0",
+            "title": "Call Ammayi",
+            "said": "7 manikku Ammayi vilikkum, phone edukkanam",
+            "date": "2026-10-08",
+            "time": "07:00"
+          }
+        ],
+        "events": [],
+        "order": null,
+        "latin": "varumbo oru packet paal vaangikko, pinne 7 manikku Ammayi vilikkum, phone edukkanam"
+      }
+    }
+  ]
+}
