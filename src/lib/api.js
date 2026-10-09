@@ -40,3 +40,8 @@ export const composeRemote = body => request('/api/compose', {
 export const cartRemote = body => request('/api/cart', {
   method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body),
 }, 240000);
+
+// Android test sign-up: no access code needed, it spends no AI quota.
+export const joinAndroidTest = body => request('/api/testers', {
+  method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body),
+}, 15000);

@@ -18,6 +18,8 @@ Speak in Malayalam / Manglish and Voc writes it up. Three modes (Home): **Email*
 - Notes can be added to (`addToNote` in server/compose.js): the AI writes only the new lines in the note's style, and only they write themselves live (`LiveText from=`).
 - "Created by Harinand" watermark under the tab bar (`.credit`), asked for by the user.
 - Search (2026-10-09): `index.html` carries the title, description, canonical, Open Graph / Twitter tags with `public/og.png`, WebApplication JSON-LD, and a static description inside `#root` that crawlers and no-JS visitors read (React replaces it on mount; keep it true to the app). `public/robots.txt` + `public/sitemap.xml`; IndexNow key file `public/fd41fc85e5f14997c98fac1a6a1783ea.txt` (pinged once, 202). Google Search Console needs the user's Google account: they add the URL-prefix property and send the `google-site-verification` meta tag to add here.
+- Android test sign-ups (2026-10-09, asked for by the user): Home card, Settings card and the shareable `/android` link (vercel.json rewrite; App.jsx turns it into `#android`) open `src/screens/Android.jsx`. `api/testers.js` + `server/testers.js` keep one private blob per email (sha256 name, so re-joining overwrites) in the Vercel Blob store `voc-testers` (store_Xh9IJ66rXyxkcg0n, iad1, private). `GET /api/testers?key=TESTERS_KEY` returns CSV; the key is in production env and in `.env.local`. The store is shared by dev and production, so delete any test sign-ups you make. The joined email is kept in settings (`android`).
+- Vercel Web Analytics is on for the project (enabled via `vercel api /web/insights/toggle`); `<Analytics beforeSend>` in main.jsx strips ?query and #hash so OAuth codes never reach it. Custom events need Pro: don't add them.
 - Notes are stored with `kind`: 'email', 'sticky', or lists (undefined/'lists'). To-do and Orders read only lists results.
 - The phone always runs the rule parser; `src/lib/pipeline.js` replaces its answer with the AI reader's when the server answers.
 
@@ -27,7 +29,7 @@ Speak in Malayalam / Manglish and Voc writes it up. Three modes (Home): **Email*
 - Dates are computed in code (`when.js`), never trusted from the model alone: `settle()` in server/extract.js uses our date, and the model's am/pm only when ours was a guess.
 - Item quantities and units: model output passes through `clean()` (unit names, canonical item names via the lexicon, head noun).
 - Errors shown to people are plain sentences (`server/http.js`); provider errors stay in the server log.
-- Notes live only in localStorage; audio is never stored. Keep the Privacy section in Notes true if this changes.
+- Notes live only in localStorage; audio is never stored; the only server-side data is Android test emails. Keep the Privacy card in Settings true if this changes.
 - Groq Whisper is opt-in only: asked for Malayalam it writes Gurmukhi script (checked 2026-10-08).
 - Speech model: gemini-3.5-flash, falling back to gemini-3.1-flash-lite on 429/503. Never gemini-3.5-flash-lite for speech: it drifts into Tamil script on Malayalam audio (2026-10-08). 3.5 Flash had a "high demand" 503 outage the same day.
 - Free tiers: Gemini Flash-Lite allows 15 requests/min, Groq gpt-oss-120b 8k tokens/min. Evals must pace (`--pace`) and the app retries 429s for up to 6 s.

@@ -31,6 +31,7 @@ export const Icon = {
   mail: s => svg(<><rect x="3.5" y="5.5" width="17" height="13" rx="2.5" /><path d="M4.5 7.5l7.5 5.5 7.5-5.5" /></>, s),
   sticky: s => svg(<><path d="M5 4h14v10l-5 6H5z" /><path d="M14 20v-6h5" /></>, s),
   pen: s => svg(<path d="M4 20l1.2-4.6L16.4 4.2a2 2 0 0 1 2.8 0l.6.6a2 2 0 0 1 0 2.8L8.6 18.8 4 20z" />, s),
+  phone: s => svg(<><rect x="7" y="2.5" width="10" height="19" rx="2.5" /><path d="M11 18.5h2" /></>, s),
   eye: s => svg(<><path d="M2.5 12S6 5.5 12 5.5 21.5 12 21.5 12 18 18.5 12 18.5 2.5 12 2.5 12z" /><circle cx="12" cy="12" r="2.8" /></>, s),
     alert: s => svg(<><path d="M12 8v5M12 16.5v.5" /><circle cx="12" cy="12" r="9" /></>, s),
 };

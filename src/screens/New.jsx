@@ -3,6 +3,7 @@ import { BusyBars, Btn, Chip, Circle, COLORS, Pill } from '../components/bits.js
 import { Icon, Logo } from '../components/Icons.jsx';
 import NoteView from '../components/NoteView.jsx';
 import { MAX_SEC } from '../lib/recorder.js';
+import { useSettings } from '../lib/store.js';
 import { clock, useRecorder } from '../lib/useRecorder.js';
 
 // What you can say, and what Voc makes of it.
@@ -47,6 +48,7 @@ export default function New({ mode, setMode, onAudio, onText, onReread, busy, er
   const [text, setText] = useState('');
   const fileRef = useRef(null);
   const m = MODES[mode] ?? MODES.email;
+  const joined = !!useSettings().android;
   const r = useRecorder(blob => onAudio(blob, 'voice', mode));
 
   function submit() {
@@ -138,6 +140,17 @@ export default function New({ mode, setMode, onAudio, onText, onReread, busy, er
       </section>
 
       {mode === 'lists' && note && !busy && <NoteView key={note.id + note.at + (note.engine ?? '')} note={note} today={today} onReread={t => onReread(note.id, t)} busy={!!busy} />}
+
+      {!joined && (
+        <button type="button" className="card tone t-mint promo" onClick={() => go('android')}>
+          <span className="icon-dot" style={{ background: COLORS.ink, color: '#fff' }}>{Icon.phone(22)}</span>
+          <span className="grow">
+            <span className="small">Coming to Google Play</span>
+            <span className="card-title">Get the Android app early</span>
+          </span>
+          <span className="circle dark" aria-hidden="true">{Icon.arrow(20)}</span>
+        </button>
+      )}
     </>
   );
 }

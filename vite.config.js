@@ -19,7 +19,7 @@ function devApi() {
           const chunks = [];
           for await (const c of req) chunks.push(c);
           const headers = {};
-          for (const h of ['content-type', 'x-app-key']) if (req.headers[h]) headers[h] = req.headers[h];
+          for (const h of ['content-type', 'x-app-key', 'user-agent']) if (req.headers[h]) headers[h] = req.headers[h];
           const request = new Request(`http://localhost${req.url}`, {
             method: req.method, headers, body: ['GET', 'HEAD'].includes(req.method) ? undefined : Buffer.concat(chunks),
           });

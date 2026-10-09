@@ -52,12 +52,20 @@ export default function Settings({ notes, server, go }) {
         </div>
       </section>
 
+      <section className="card tone t-mint">
+        <h2 className="card-title">Android app</h2>
+        <p className="desc">{s.android ? `You're on the test list as ${s.android.email}. The Play Store link comes by email when the test opens.` : 'Voc is coming to Google Play. Join the test to get it first.'}</p>
+        <div className="btns"><Btn icon="phone" onClick={() => go('android')}>{s.android ? 'Change email' : 'Get the Android app early'}</Btn></div>
+      </section>
+
       <section className="card tone t-ice">
         <h2 className="card-title">Privacy</h2>
         <ul className="plain">
-          <li>Emails, notes, to-dos and orders are kept only on this phone. No account, no database.</li>
+          <li>Emails, notes, to-dos and orders are kept only on this phone. No account needed.</li>
           <li>Voice goes to the speech service to be written down, then dropped. Audio is never stored.</li>
           <li>Gemini's free tier may use what it's sent to improve Google's products. For private or customer data, use a paid key.</li>
+          <li>Visits are counted with Vercel Web Analytics: no cookies, and never what you say or write.</li>
+          <li>If you join the Android test, your email is kept only to invite you on Google Play.</li>
         </ul>
       </section>
     </>

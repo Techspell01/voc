@@ -5,6 +5,7 @@ import Notes from './screens/Notes.jsx';
 import Todo, { agenda } from './screens/Todo.jsx';
 import Orders, { openOrders } from './screens/Orders.jsx';
 import Settings from './screens/Settings.jsx';
+import Android from './screens/Android.jsx';
 import { Icon } from './components/Icons.jsx';
 import { addNote, getNotes, setSettings, updateNote, useNotes, useSettings } from './lib/store.js';
 import { fillOrder, finishLink } from './lib/cartlink.js';
@@ -15,9 +16,12 @@ import { takeShared } from './lib/shared.js';
 import { todayIST } from './lib/manglish/when.js';
 
 const TABS = [['new', 'Home', 'mic'], ['mail', 'Mail', 'mail'], ['notes', 'Notes', 'sticky'], ['todo', 'To-do', 'list'], ['orders', 'Orders', 'bag']];
-const ROUTES = new Set([...TABS.map(t => t[0]), 'settings']);
+const ROUTES = new Set([...TABS.map(t => t[0]), 'settings', 'android']);
 const LIGHT = new Set(['notes', 'todo', 'settings']);   // sage screens; the rest are charcoal
 const cap = s => (s ? s[0].toUpperCase() + s.slice(1) : s);
+
+// usevoc.vercel.app/android is the link to share for the Android test: it opens that screen.
+if (location.pathname === '/android') history.replaceState(null, '', '/#android');
 
 export default function App() {
   const notes = useNotes();
@@ -175,6 +179,7 @@ ${said}`, editedAt: new Date().toISOString() }));
         {tab === 'todo' && <Todo notes={notes} today={today} go={go} />}
         {tab === 'orders' && <Orders notes={notes} today={today} go={go} />}
         {tab === 'settings' && <Settings notes={notes} server={server} go={go} />}
+        {tab === 'android' && <Android go={go} />}
       </main>
       <nav className="tabbar" aria-label="Sections">
         {TABS.map(([id, label, icon]) => (

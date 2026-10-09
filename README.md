@@ -103,7 +103,11 @@ npm run eval -- --llm --only=llm --provider=gemini --pace=4500 --save=mylabel
 
 ## Privacy
 
-Notes, to-dos and orders stay in the phone's storage; there is no account and no database. Audio goes to the speech service only to be written down and is never stored. Gemini's free tier may use what it's sent to improve Google's products, so for customers' data use Sarvam or a paid key. "Offline only" mode keeps typed notes entirely on the phone.
+Notes, to-dos and orders stay in the phone's storage; there is no account. The only thing kept on a server is the email of anyone who joins the Android test (below). Audio goes to the speech service only to be written down and is never stored. Gemini's free tier may use what it's sent to improve Google's products, so for customers' data use Sarvam or a paid key. "Offline only" mode keeps typed notes entirely on the phone. Visits are counted with Vercel Web Analytics (no cookies; the address is sent without its query or #screen).
+
+## Android test sign-ups
+
+Google Play makes a new personal developer account run a closed test with at least 12 testers for 14 days before an app can go public, so the web app collects testers first: the card at the bottom of Home, Settings, or the link to share, **usevoc.vercel.app/android**. `api/testers.js` keeps one private blob per email in the Vercel Blob store `voc-testers` (`BLOB_READ_WRITE_TOKEN`). Open `https://usevoc.vercel.app/api/testers?key=<TESTERS_KEY>` for the list as CSV, ready for Play Console's tester list.
 
 ## Layout
 

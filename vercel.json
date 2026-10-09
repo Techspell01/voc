@@ -1,5 +1,8 @@
 {
-  "rewrites": [{ "source": "/share-target", "destination": "/api/share-fallback" }],
+  "rewrites": [
+    { "source": "/share-target", "destination": "/api/share-fallback" },
+    { "source": "/android", "destination": "/index.html" }
+  ],
   "functions": { "api/*.js": { "maxDuration": 60 } },
   "headers": [
     { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }

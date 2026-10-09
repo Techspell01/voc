@@ -37,6 +37,6 @@
 - [ ] Pricing to test: ₹199-499/month per shop.
 
 ## Ideas
-- Android app via Capacitor (as planned for Weee), for a proper share target on every phone.
+- Android app: a Trusted Web Activity (PWABuilder / Bubblewrap) so web deploys reach it without store updates. Testers are being collected now (`/android`, 2026-10-09); Play's closed test needs 12+ for 14 days. Needs `/.well-known/assetlinks.json` with the signing key (and Play App Signing's) fingerprint.
 - Reminders as notifications instead of calendar entries.
 - A Manglish keyboard-free note: speak, Voc writes a clean WhatsApp message back in Manglish or Malayalam.
