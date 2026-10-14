@@ -28,11 +28,10 @@ function Reply({ r, today }) {
   return <>Got it! {parts.reduce((acc, p, n) => [...acc, n ? (n === parts.length - 1 ? ' and ' : ', ') : null, p], [])}.</>;
 }
 
-export default function NoteView({ note, today, onReread, onEdit, canHear, busy }) {
+export default function NoteView({ note, today, onReread, onEdit, canHear, adding, setAdding, busy }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(note.transcript);
   const [copied, setCopied] = useState(false);
-  const [adding, setAdding] = useState(false);
   const [more, setMore] = useState('');
   const rec = useRecorder(blob => onEdit?.({ blob }));
   const r = note.result ?? { items: [], todos: [], events: [] };

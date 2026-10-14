@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { BusyBars, Btn, Chip, Circle, COLORS, Pill } from '../components/bits.jsx';
 import { Icon, Logo } from '../components/Icons.jsx';
 import NoteView from '../components/NoteView.jsx';
@@ -46,15 +46,22 @@ function greeting(now = new Date()) {
 
 export default function New({ mode, setMode, onAudio, onText, onReread, onEdit, busy, error, note, today, canHear, status, go }) {
   const [text, setText] = useState('');
+  const [adding, setAdding] = useState(false);
   const fileRef = useRef(null);
   const m = MODES[mode] ?? MODES.email;
   const joined = !!useSettings().android;
-  const r = useRecorder(blob => onAudio(blob, 'voice', mode));
+  // While "Add more items" is open on a list, the voice button and typed box add to
+  // that list instead of starting a new note.
+  const amending = adding && mode === 'lists' && !!note;
+  const r = useRecorder(blob => (amending ? onEdit?.(note.id, { blob }) : onAudio(blob, 'voice', mode)));
+
+  useEffect(() => { setAdding(false); }, [note?.id, mode]);
 
   function submit() {
     const t = text.trim();
     if (!t || busy) return;
-    onText(t, 'typed', mode);
+    if (amending) onEdit?.(note.id, { text: t });
+    else onText(t, 'typed', mode);
     setText('');
   }
 
@@ -98,7 +105,7 @@ export default function New({ mode, setMode, onAudio, onText, onReread, onEdit, 
           </div>
           <div className="timer">{clock(r.secs)}</div>
           <div className="bars" aria-hidden="true">{r.bars.map((v, i) => <span key={i} style={{ height: `${8 + v * 84}px` }} />)}</div>
-          <Btn block icon="stop" onClick={r.stop}>Stop and {mode === 'lists' ? 'read' : 'write'} it</Btn>
+          <Btn block icon="stop" onClick={r.stop}>Stop and {amending ? 'add it' : mode === 'lists' ? 'read' : 'write'} it</Btn>
         </section>
       ) : (
         <section className={`card tone ${m.tone} rec-card`}>
@@ -109,7 +116,7 @@ export default function New({ mode, setMode, onAudio, onText, onReread, onEdit, 
           </div>
           <h2 className="card-title">{m.title}</h2>
           <p className="desc">{m.desc}</p>
-          <Btn block onClick={r.start} disabled={!canHear || !!busy}><span className="rec-dot" />{canHear ? m.button : 'Speech needs the server'}</Btn>
+          <Btn block onClick={r.start} disabled={!canHear || !!busy}><span className="rec-dot" />{canHear ? (amending ? 'Add more by voice' : m.button) : 'Speech needs the server'}</Btn>
         </section>
       )}
       <input ref={fileRef} className="hidden-input" type="file" accept="audio/*,.opus,.ogg,.m4a,.amr" tabIndex={-1}
@@ -139,7 +146,7 @@ export default function New({ mode, setMode, onAudio, onText, onReread, onEdit, 
         {mode === 'lists' && <p className="note-line muted">Android: in WhatsApp, long-press a voice note, Share, then Voc (after Add to Home screen).</p>}
       </section>
 
-      {mode === 'lists' && note && !busy && <NoteView key={note.id + note.at + (note.engine ?? '') + (note.editedAt ?? '')} note={note} today={today} onReread={t => onReread(note.id, t)} onEdit={p => onEdit(note.id, p)} canHear={canHear} busy={!!busy} />}
+      {mode === 'lists' && note && !busy && <NoteView key={note.id + note.at + (note.engine ?? '') + (note.editedAt ?? '')} note={note} today={today} onReread={t => onReread(note.id, t)} onEdit={p => onEdit(note.id, p)} canHear={canHear} adding={adding} setAdding={setAdding} busy={!!busy} />}
 
       {!joined && (
         <button type="button" className="card tone t-mint promo" onClick={() => go('android')}>
