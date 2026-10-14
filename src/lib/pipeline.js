@@ -4,7 +4,7 @@
 import { extract } from './manglish/parse.js';
 import { todayIST } from './manglish/when.js';
 import { toWavChunks } from './audio.js';
-import { composeRemote, extractRemote, transcribeChunk } from './api.js';
+import { appendListRemote, composeRemote, extractRemote, transcribeChunk } from './api.js';
 import { getSettings } from './store.js';
 
 export async function hearAudio(blob, onStage) {
@@ -39,6 +39,20 @@ export async function readNote(text, onStage) {
     return { result: r.result, engine: `ai:${r.engine}`, today };
   } catch (err) {
     return { result: rules, engine: 'rules', today, fallback: err.message };
+  }
+}
+
+// More for an existing list: just the new items, in the same shape as a note.
+export async function addToList(note, text, onStage) {
+  const today = todayIST();
+  const rules = () => ({ result: extract(text, { today }), engine: 'rules' });
+  if (getSettings().engine === 'offline') return rules();
+  onStage?.('adding to your list');
+  try {
+    const r = await appendListRemote(text, today, { items: note.result?.items ?? [], todos: note.result?.todos ?? [], events: note.result?.events ?? [] });
+    return { result: r.result, engine: `ai:${r.engine}` };
+  } catch (err) {
+    return { ...rules(), fallback: err.message };
   }
 }
 

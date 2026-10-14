@@ -154,3 +154,27 @@ export async function extractWithLLM(text, { today, env, only } = {}) {
   const r = await askJSON({ system: systemPrompt(today), user: userPrompt(text, today, env), env, only, check: raw => clean(raw, today) });
   return { result: { ...r.value, latin: transliterate(text) }, engine: r.provider, ms: r.ms };
 }
+
+// Adding to a list that already exists: the model gets what is already on the
+// list, so it returns only what's new.
+export function appendPrompt(today, existing = {}) {
+  const names = (rows, key) => (Array.isArray(rows) ? rows.map(x => str(x?.[key])).filter(Boolean) : []);
+  const items = names(existing.items, 'name');
+  const todos = names(existing.todos, 'title');
+  const events = names(existing.events, 'title');
+  const have = [];
+  if (items.length) have.push(`Items: ${items.join(', ')}`);
+  if (todos.length) have.push(`To-dos: ${todos.join(', ')}`);
+  if (events.length) have.push(`Dates: ${events.join(', ')}`);
+  return `${systemPrompt(today)}
+
+You are ADDING to a list that already exists. It already has:
+${have.length ? have.join('\n') : '(nothing yet)'}
+
+Return only the NEW items, to-dos and dates from the new note. Never repeat anything already on the list, and leave out anything the note cancels or changes. Use the same JSON shape. Use empty lists when the note adds nothing.`;
+}
+
+export async function appendToList(existing, text, { today, env, only } = {}) {
+  const r = await askJSON({ system: appendPrompt(today, existing), user: userPrompt(text, today, env), env, only, check: raw => clean(raw, today) });
+  return { result: r.value, engine: r.provider, ms: r.ms };
+}

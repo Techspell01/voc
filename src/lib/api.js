@@ -32,6 +32,11 @@ export const extractRemote = (text, today) => request('/api/extract', {
   method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text, today }),
 }, 45000);
 
+// More for an existing list: the server gets the list so far, and returns only the new items.
+export const appendListRemote = (text, today, existing) => request('/api/extract', {
+  method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ text, today, existing }),
+}, 45000);
+
 export const composeRemote = body => request('/api/compose', {
   method: 'POST', headers: { 'content-type': 'application/json' }, body: JSON.stringify(body),
 }, 50000);

@@ -9,7 +9,7 @@ import Android from './screens/Android.jsx';
 import { Icon } from './components/Icons.jsx';
 import { addNote, getNotes, setSettings, updateNote, useNotes, useSettings } from './lib/store.js';
 import { fillOrder, finishLink } from './lib/cartlink.js';
-import { addToNote, hearAudio, readNote, rewriteEmail, writeEmail, writeNote } from './lib/pipeline.js';
+import { addToNote, addToList, hearAudio, readNote, rewriteEmail, writeEmail, writeNote } from './lib/pipeline.js';
 import { graphemes } from './components/Sticky.jsx';
 import { status } from './lib/api.js';
 import { takeShared } from './lib/shared.js';
@@ -148,6 +148,38 @@ ${said}`, editedAt: new Date().toISOString() }));
     }
   }
 
+  // More for an existing list: hear it (or take the typed text), keep only the new items.
+  async function appendList(id, { blob, text }) {
+    const note = notes.find(n => n.id === id);
+    if (!note) return;
+    setError('');
+    const stage = s => setBusy({ kind: 'lists', stage: s });
+    try {
+      const said = blob ? (await hearAudio(blob, stage)).transcript : text;
+      const out = await addToList(note, said, stage);
+      const add = out.result ?? {};
+      updateNote(id, n => {
+        const r = n.result ?? {};
+        const merge = (old = [], more = [], p) => [...old, ...more.map((x, i) => ({ ...x, id: `${p}${old.length + i}` }))];
+        return {
+          result: {
+            ...r,
+            items: merge(r.items, add.items, 'i'),
+            todos: merge(r.todos, add.todos, 't'),
+            events: merge(r.events, add.events, 'e'),
+            order: add.order ?? r.order,
+          },
+          transcript: `${n.transcript}\n${said}`,
+          editedAt: new Date().toISOString(),
+        };
+      });
+    } catch (err) {
+      setError(err.message || 'Something went wrong.');
+    } finally {
+      setBusy(null);
+    }
+  }
+
   async function rewrite(id, email, how) {
     setError('');
     const note = notes.find(n => n.id === id);
@@ -160,7 +192,6 @@ ${said}`, editedAt: new Date().toISOString() }));
       setBusy(null);
     }
   }
-
   const counts = { todo: agenda(notes, today).openCount, orders: openOrders(notes).length };
   const note = notes.find(n => n.id === current);
   const canHear = !!server?.stt?.length && online;
@@ -173,7 +204,7 @@ ${said}`, editedAt: new Date().toISOString() }));
   return (
     <>
       <main className={`screen${LIGHT.has(tab) ? ' light' : ''}`}>
-        {tab === 'new' && <New {...shared} mode={mode} setMode={m => setSettings({ mode: m })} onAudio={handleAudio} onText={handleText} onReread={reread} note={note} status={statusLine} />}
+        {tab === 'new' && <New {...shared} mode={mode} setMode={m => setSettings({ mode: m })} onAudio={handleAudio} onText={handleText} onReread={reread} onEdit={appendList} note={note} status={statusLine} />}
         {tab === 'mail' && <Mail {...shared} open={openMail} setOpen={setOpenMail} onAudio={handleAudio} onRewrite={rewrite} />}
         {tab === 'notes' && <Notes {...shared} live={live} setLive={setLive} onAudio={handleAudio} onAppend={appendNote} />}
         {tab === 'todo' && <Todo notes={notes} today={today} go={go} />}

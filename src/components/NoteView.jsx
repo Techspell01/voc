@@ -1,12 +1,13 @@
 // One note: what was heard (a chat bubble), Voc's reply, then the order
 // list, to-dos and calendar entries as coloured cards.
 import { useState } from 'react';
-import { Btn, Check, Chip, Circle, COLORS } from './bits.jsx';
+import { BusyBars, Btn, Check, Chip, Circle, COLORS } from './bits.jsx';
 import OrderRows from './OrderRows.jsx';
 import { Icon, Logo } from './Icons.jsx';
 import { dayText, qtyText, timeText, whenText } from '../lib/format.js';
 import { copy, download, googleCalendarUrl, icsFile, orderText, whatsappUrl } from '../lib/share.js';
 import { toggleDone } from '../lib/store.js';
+import { clock, useRecorder } from '../lib/useRecorder.js';
 import { hasMalayalam } from '../lib/manglish/translit.js';
 
 export const SOURCE = { voice: 'voice note', file: 'audio file', shared: 'shared from WhatsApp', typed: 'typed' };
@@ -27,16 +28,20 @@ function Reply({ r, today }) {
   return <>Got it! {parts.reduce((acc, p, n) => [...acc, n ? (n === parts.length - 1 ? ' and ' : ', ') : null, p], [])}.</>;
 }
 
-export default function NoteView({ note, today, onReread, busy }) {
+export default function NoteView({ note, today, onReread, onEdit, canHear, busy }) {
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(note.transcript);
   const [copied, setCopied] = useState(false);
+  const [adding, setAdding] = useState(false);
+  const [more, setMore] = useState('');
+  const rec = useRecorder(blob => onEdit?.({ blob }));
   const r = note.result ?? { items: [], todos: [], events: [] };
   const done = note.done ?? {};
   const items = r.items ?? [];
   const ml = hasMalayalam(note.transcript);
   const text = orderText(items, r.order, today);
   const packed = items.filter(it => done[it.id]).length;
+  const hasList = items.length > 0 || (r.todos?.length ?? 0) > 0 || (r.events?.length ?? 0) > 0;
 
   async function doCopy() {
     if (await copy(text)) { setCopied(true); setTimeout(() => setCopied(false), 1500); }
@@ -55,6 +60,7 @@ export default function NoteView({ note, today, onReread, busy }) {
         </div>
         <div className="replies">
           {onReread && <button type="button" className="reply" onClick={() => { setDraft(note.transcript); setEditing(e => !e); }}>Fix a word</button>}
+          {onEdit && hasList && <button type="button" className={`reply sage`} aria-pressed={adding} onClick={() => setAdding(a => !a)}>{adding ? 'Done' : 'Add more items'}</button>}
           {items.length > 0 && <a className="reply yellow" href={whatsappUrl(text)} target="_blank" rel="noreferrer">Send the list on WhatsApp</a>}
         </div>
         <p className="small muted" style={{ textAlign: 'right' }}>
@@ -62,6 +68,26 @@ export default function NoteView({ note, today, onReread, busy }) {
           {note.fallback ? ` (AI unavailable: ${note.fallback.replace(/\.$/, '')})` : ''}
         </p>
       </div>
+
+      {/* Edit: say or type more, and only the new items join the list */}
+      {adding && (
+        <div className="composer add-more">
+          <Circle icon={rec.recording ? 'stop' : 'mic'} tone="yellow" label={rec.recording ? 'Stop and add' : 'Say more'}
+            disabled={(!canHear && !rec.recording) || !!busy} onClick={rec.toggle} />
+          <div className="field">
+            {busy
+              ? <span className="inline-status"><BusyBars /> {busy.stage}…</span>
+              : rec.recording
+                ? <span className="inline-status"><span className="rec-dot" /> {clock(rec.secs)} · say what to add</span>
+                : <input value={more} onChange={e => setMore(e.target.value)} placeholder="Add more items…" aria-label="Add more items"
+                    onKeyDown={e => { if (e.key === 'Enter' && more.trim()) { onEdit?.({ text: more.trim() }); setMore(''); } }} />}
+            {more.trim() && !rec.recording && !busy && (
+              <Circle icon="up" tone="ice" label="Add to list" onClick={() => { onEdit?.({ text: more.trim() }); setMore(''); }} />
+            )}
+          </div>
+        </div>
+      )}
+      {rec.error && <div className="err" role="alert">{Icon.alert(18)}<span>{rec.error}</span></div>}
 
       {editing && (
         <div className="composer">

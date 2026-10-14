@@ -44,7 +44,7 @@ function greeting(now = new Date()) {
   return h < 12 ? 'Good morning' : h < 17 ? 'Good afternoon' : 'Good evening';
 }
 
-export default function New({ mode, setMode, onAudio, onText, onReread, busy, error, note, today, canHear, status, go }) {
+export default function New({ mode, setMode, onAudio, onText, onReread, onEdit, busy, error, note, today, canHear, status, go }) {
   const [text, setText] = useState('');
   const fileRef = useRef(null);
   const m = MODES[mode] ?? MODES.email;
@@ -139,7 +139,7 @@ export default function New({ mode, setMode, onAudio, onText, onReread, busy, er
         {mode === 'lists' && <p className="note-line muted">Android: in WhatsApp, long-press a voice note, Share, then Voc (after Add to Home screen).</p>}
       </section>
 
-      {mode === 'lists' && note && !busy && <NoteView key={note.id + note.at + (note.engine ?? '')} note={note} today={today} onReread={t => onReread(note.id, t)} busy={!!busy} />}
+      {mode === 'lists' && note && !busy && <NoteView key={note.id + note.at + (note.engine ?? '') + (note.editedAt ?? '')} note={note} today={today} onReread={t => onReread(note.id, t)} onEdit={p => onEdit(note.id, p)} canHear={canHear} busy={!!busy} />}
 
       {!joined && (
         <button type="button" className="card tone t-mint promo" onClick={() => go('android')}>
