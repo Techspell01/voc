@@ -8,3 +8,7 @@ eval/audio
 eval/results
 scripts
 *.tmp.mjs
+
+# Android projects: build output, and the signing keystore + its password
+android
+android-old-twa

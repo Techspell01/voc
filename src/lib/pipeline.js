@@ -7,7 +7,7 @@ import { toWavChunks } from './audio.js';
 import { appendListRemote, composeRemote, extractRemote, transcribeChunk } from './api.js';
 import { getSettings } from './store.js';
 
-export async function hearAudio(blob, onStage) {
+export async function hearAudio(blob, onStage, opts = {}) {
   onStage?.('decoding audio');
   let chunks, seconds;
   try {
@@ -20,7 +20,7 @@ export async function hearAudio(blob, onStage) {
   let provider = null;
   for (let i = 0; i < chunks.length; i++) {
     onStage?.(chunks.length > 1 ? `listening ${i + 1}/${chunks.length}` : 'listening');
-    const r = await transcribeChunk(chunks[i]);
+    const r = await transcribeChunk(chunks[i], opts);
     texts.push(r.text);
     provider = r.provider;
   }
@@ -95,5 +95,19 @@ export async function addToNote(note, text, onStage) {
     return { add: r.result.add, engine: `ai:${r.engine}` };
   } catch (err) {
     return { ...raw(), fallback: err.message };
+  }
+}
+
+// What somebody said -> an English reply to paste into WhatsApp. There is no offline
+// translation, so it always comes back with something: the words as they were said.
+export async function translateReply(text, onStage) {
+  const asSaid = () => ({ result: { text, from: null }, engine: 'as said' });
+  if (getSettings().engine === 'offline') return { ...asSaid(), fallback: 'Offline, so these are your own words.' };
+  onStage?.('translating');
+  try {
+    const r = await composeRemote({ kind: 'translate', text, today: todayIST() });
+    return { result: r.result, engine: `ai:${r.engine}` };
+  } catch (err) {
+    return { ...asSaid(), fallback: `${err.message} These are your own words.` };
   }
 }

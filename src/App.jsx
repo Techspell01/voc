@@ -6,17 +6,18 @@ import Todo, { agenda } from './screens/Todo.jsx';
 import Orders, { openOrders } from './screens/Orders.jsx';
 import Settings from './screens/Settings.jsx';
 import Android from './screens/Android.jsx';
+import Translate from './screens/Translate.jsx';
 import { Icon } from './components/Icons.jsx';
 import { addNote, getNotes, setSettings, updateNote, useNotes, useSettings } from './lib/store.js';
 import { fillOrder, finishLink } from './lib/cartlink.js';
-import { addToNote, addToList, hearAudio, readNote, rewriteEmail, writeEmail, writeNote } from './lib/pipeline.js';
+import { addToNote, addToList, hearAudio, readNote, rewriteEmail, translateReply, writeEmail, writeNote } from './lib/pipeline.js';
 import { graphemes } from './components/Sticky.jsx';
 import { status } from './lib/api.js';
 import { takeShared } from './lib/shared.js';
 import { todayIST } from './lib/manglish/when.js';
 
 const TABS = [['new', 'Home', 'mic'], ['mail', 'Mail', 'mail'], ['notes', 'Notes', 'sticky'], ['todo', 'To-do', 'list'], ['orders', 'Orders', 'bag']];
-const ROUTES = new Set([...TABS.map(t => t[0]), 'settings', 'android']);
+const ROUTES = new Set([...TABS.map(t => t[0]), 'settings', 'android', 'translate']);
 const LIGHT = new Set(['notes', 'todo', 'settings']);   // sage screens; the rest are charcoal
 const cap = s => (s ? s[0].toUpperCase() + s.slice(1) : s);
 
@@ -31,6 +32,7 @@ export default function App() {
   const [openMail, setOpenMail] = useState(null);
   const [live, setLive] = useState(null);           // { id, from }: the sticky that is writing itself
   const [busy, setBusy] = useState(null);           // { kind, stage }
+  const [translation, setTranslation] = useState(null);   // the last Translate reply: { result, said, ... }
   const [error, setError] = useState('');
   const [server, setServer] = useState(null);
   const [online, setOnline] = useState(navigator.onLine);
@@ -93,7 +95,12 @@ export default function App() {
     const stage = s => setBusy({ kind, stage: s });
     if (kind === 'note' && tab !== 'notes') setTab('notes');
     try {
-      const heard = await hearAudio(blob, stage);
+      const heard = await hearAudio(blob, stage, kind === 'translate' ? { lang: 'auto' } : undefined);
+      if (kind === 'translate') {
+        const out = await translateReply(heard.transcript, stage);
+        setTranslation({ ...out.result, engine: out.engine, fallback: out.fallback ?? null, said: heard.transcript, stt: heard.provider, typed: false });
+        return;
+      }
       const out = await write(kind, heard.transcript, stage);
       show(kind, addNote({ kind: stored(kind), source, transcript: heard.transcript, stt: heard.provider, seconds: heard.seconds, ...out }));
     } catch (err) {
@@ -107,6 +114,11 @@ export default function App() {
     setError('');
     const stage = s => setBusy({ kind, stage: s });
     try {
+      if (kind === 'translate') {
+        const out = await translateReply(text, stage);
+        setTranslation({ ...out.result, engine: out.engine, fallback: out.fallback ?? null, said: text, stt: null, typed: true });
+        return;
+      }
       const out = await write(kind, text, stage);
       show(kind, addNote({ kind: stored(kind), source, transcript: text, ...out }));
     } catch (err) {
@@ -211,6 +223,7 @@ ${said}`, editedAt: new Date().toISOString() }));
         {tab === 'orders' && <Orders notes={notes} today={today} go={go} />}
         {tab === 'settings' && <Settings notes={notes} server={server} go={go} />}
         {tab === 'android' && <Android go={go} />}
+        {tab === 'translate' && <Translate {...shared} onAudio={handleAudio} onText={handleText} result={translation} onClear={() => setTranslation(null)} />}
       </main>
       <nav className="tabbar" aria-label="Sections">
         {TABS.map(([id, label, icon]) => (

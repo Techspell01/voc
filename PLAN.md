@@ -17,6 +17,7 @@
 - [x] Zepto + Instamart "Add all to cart" via official MCP (2026-10-09), working on localhost; tested with a mock store only.
 - [ ] First real run with the user's Zepto account on localhost; fix whatever the real tool schemas need.
 - [ ] Ask Zepto to allow https://usevoc.vercel.app/zepto-callback (issue on github.com/zeptonow/mcp), and apply for Swiggy Builders Club production access.
+- [x] Translate a reply (2026-10-19): say it in Malayalam, Hindi, Manglish or English and get one English message to copy or send on WhatsApp, off a card on Home. Speech asks for language detection (`?lang=auto`) so Hindi isn't read as Malayalam. Nothing is saved.
 
 ## Phase 2: real voice notes (next)
 - [ ] Get a Sarvam key (free credits) and run `npm run eval:audio` with Sarvam vs Gemini.

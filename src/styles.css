@@ -398,3 +398,9 @@ body.light .credit { color: rgba(22, 22, 22, 0.42); }
 .joined-head { display: flex; align-items: center; gap: 8px; font-size: 14px; }
 .joined p { margin: 6px 0 0; }
 .joined .btn { margin-top: 12px; }
+
+/* Translate screen: the English reply, ready to paste ------------------------------ */
+.translate-out {
+  margin-top: 14px; padding: 14px 16px; border-radius: 14px; background: rgba(255, 255, 255, 0.55);
+  font-size: 15.5px; line-height: 1.5; white-space: pre-wrap; overflow-wrap: anywhere;
+}

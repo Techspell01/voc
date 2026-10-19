@@ -1,6 +1,6 @@
-// POST { kind: 'email' | 'note' | 'append' | 'rewrite', text, today, name?, tone?, email?, how?, note? }
+// POST { kind: 'email' | 'note' | 'append' | 'rewrite' | 'translate', text, today, name?, tone?, email?, how?, note? }
 //   -> { result, engine }
-import { addToNote, rewriteEmail, writeEmail, writeNote } from '../server/compose.js';
+import { addToNote, rewriteEmail, translate, writeEmail, writeNote } from '../server/compose.js';
 import { denied, failure, json } from '../server/http.js';
 import { todayIST } from '../src/lib/manglish/when.js';
 
@@ -23,6 +23,7 @@ export async function POST(request) {
     if (!text) return json({ error: 'empty', message: 'Nothing to write from.' }, 400);
     if (b?.kind === 'email') return json(await writeEmail(text, { today, env, name, tone: b?.tone === 'friendly' ? 'friendly' : 'formal' }));
     if (b?.kind === 'note') return json(await writeNote(text, { today, env }));
+    if (b?.kind === 'translate') return json(await translate(text, { today, env }));
     if (b?.kind === 'append') {
       const note = { title: String(b?.note?.title ?? '').slice(0, 200), text: String(b?.note?.text ?? '').slice(0, 6000) };
       return json(await addToNote(note, text, { today, env }));
@@ -32,3 +33,5 @@ export async function POST(request) {
     return failure(err, 'writing');
   }
 }
+
+export function OPTIONS() { return new Response(null, { status: 204 }); }

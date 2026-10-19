@@ -148,6 +148,15 @@ export default function New({ mode, setMode, onAudio, onText, onReread, onEdit, 
 
       {mode === 'lists' && note && !busy && <NoteView key={note.id + note.at + (note.engine ?? '') + (note.editedAt ?? '')} note={note} today={today} onReread={t => onReread(note.id, t)} onEdit={p => onEdit(note.id, p)} canHear={canHear} adding={adding} setAdding={setAdding} busy={!!busy} />}
 
+      <button type="button" className="card tone t-cream promo" onClick={() => go('translate')}>
+        <span className="icon-dot" style={{ background: COLORS.ink, color: '#fff' }}>{Icon.wave(22)}</span>
+        <span className="grow">
+          <span className="small">Malayalam · Hindi · Manglish</span>
+          <span className="card-title">Say your reply in English</span>
+        </span>
+        <span className="circle dark" aria-hidden="true">{Icon.arrow(20)}</span>
+      </button>
+
       {!joined && (
         <button type="button" className="card tone t-mint promo" onClick={() => go('android')}>
           <span className="icon-dot" style={{ background: COLORS.ink, color: '#fff' }}>{Icon.phone(22)}</span>

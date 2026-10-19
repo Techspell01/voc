@@ -111,6 +111,35 @@ export async function writeNote(text, { today, env, only } = {}) {
   return { result: r.value, engine: r.provider, ms: r.ms };
 }
 
+// Speech -> an English reply to send back. The words may be Malayalam, Manglish,
+// Hindi or Hinglish, so the prompt asks the model to work out what it is hearing.
+export function translatePrompt({ today }) {
+  return `You turn what somebody said into clear English they can send as a reply. ${SPEECH}
+The words may also be Hindi, Hinglish (Hindi and English mixed) or plain English, and any two of these can be mixed in one breath. Work out what each part is.
+
+Dates, for reading "nale", weekdays and so on:
+${calendar(today)}
+
+Return JSON only: {"text": string, "from": string}
+
+- text: the whole thing in plain natural English, ready to paste into a message. One short message: no greeting, no sign-off, no quotation marks around it.
+- Translate the meaning, never word by word. Keep every fact: names, numbers, amounts (₹), dates, times, places. Write dates as "Friday, 9 October".
+- Never invent anything that wasn't said, and never leave anything out. If the words are already in English, tidy the punctuation and give them back.
+- from: the language it was said in, in English: "Malayalam", "Malayalam and English", "Hindi", "Hindi and English" or "English".`;
+}
+
+export function checkTranslate(raw) {
+  const j = parseJSON(raw);
+  const text = str(j.text);
+  if (!text) throw new Error('no translation');
+  return { text, from: str(j.from) || null };
+}
+
+export async function translate(text, { today, env, only } = {}) {
+  const r = await askJSON({ system: translatePrompt({ today }), user: spoken(text), env, only, check: checkTranslate });
+  return { result: r.value, engine: r.provider, ms: r.ms };
+}
+
 const HOW = {
   formal: 'Make it more formal and polite.',
   friendly: 'Make it warmer and more friendly, still polite.',

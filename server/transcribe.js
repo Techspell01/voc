@@ -8,6 +8,16 @@ const GEMINI_PROMPT = `Transcribe this voice note word for word. The speaker is 
 Write Malayalam words in Malayalam script and English words in English letters, exactly as spoken. English words said in a Malayalam accent are still English: write meeting, report, client, presentation, gas, book, bill, packet, kilo, doctor, appointment in English letters. Do not translate. Write numbers, quantities and times as digits.
 Return only the transcript. If there is no speech, return an empty string.`;
 
+// For Translate, where the speaker may be speaking Malayalam, Hindi or English:
+// the same rules, without the "the speaker is from Kerala" assumption.
+const GEMINI_PROMPT_AUTO = `Transcribe this voice note word for word. The speaker may be speaking Malayalam, Manglish (Malayalam and English mixed), Hindi, Hinglish (Hindi and English mixed) or English, and may switch between them in one breath: work out what you hear.
+Write Malayalam words in Malayalam script, Hindi words in Devanagari script and English words in English letters, exactly as spoken. English words said in any Indian accent are still English: write meeting, report, client, presentation, gas, book, bill, packet, kilo, doctor, appointment in English letters. Do not translate. Write numbers, quantities and times as digits.
+Return only the transcript. If there is no speech, return an empty string.`;
+
+// The language auto-detect needs a service that detects it. Sarvam is asked for a
+// language up front, so it stays on the normal path.
+const AUTO_OK = new Set(['gemini', 'groq']);
+
 const EXT = { 'audio/wav': 'wav', 'audio/mpeg': 'mp3', 'audio/ogg': 'ogg' };
 
 const providers = {
@@ -23,9 +33,9 @@ const providers = {
     return data.transcript ?? '';
   },
 
-  async gemini(audio, env, mime) {
+  async gemini(audio, env, mime, auto) {
     const body = JSON.stringify({
-      contents: [{ role: 'user', parts: [{ text: GEMINI_PROMPT }, { inlineData: { mimeType: mime, data: Buffer.from(audio).toString('base64') } }] }],
+      contents: [{ role: 'user', parts: [{ text: auto ? GEMINI_PROMPT_AUTO : GEMINI_PROMPT }, { inlineData: { mimeType: mime, data: Buffer.from(audio).toString('base64') } }] }],
       generationConfig: { temperature: 0 },
     });
     const ask = model => call('gemini', `https://generativelanguage.googleapis.com/v1beta/models/${model}:generateContent`, {
@@ -41,11 +51,11 @@ const providers = {
     return (data.candidates?.[0]?.content?.parts ?? []).map(p => p.text ?? '').join('').trim();
   },
 
-  async groq(audio, env, mime) {
+  async groq(audio, env, mime, auto) {
     const form = new FormData();
     form.append('file', new Blob([audio], { type: mime }), `note.${EXT[mime] ?? 'wav'}`);
     form.append('model', setting(env, 'GROQ_STT_MODEL'));
-    form.append('language', 'ml');
+    if (!auto) form.append('language', 'ml');   // otherwise Whisper detects it
     form.append('response_format', 'json');
     form.append('temperature', '0');
     const data = await call('groq', 'https://api.groq.com/openai/v1/audio/transcriptions', {
@@ -57,11 +67,13 @@ const providers = {
 
 export const STT_NAMES = Object.keys(providers);
 
-export async function transcribe(audio, { env, only, mime = 'audio/wav' } = {}) {
-  const list = only ? [only].filter(p => sttProviders(env).includes(p)) : sttProviders(env);
+export async function transcribe(audio, { env, only, mime = 'audio/wav', lang } = {}) {
+  let list = only ? [only].filter(p => sttProviders(env).includes(p)) : sttProviders(env);
+  const auto = lang === 'auto' && list.some(p => AUTO_OK.has(p));
+  if (auto) list = list.filter(p => AUTO_OK.has(p));
   const t0 = Date.now();
   // a 28 s chunk normally takes 3-6 s; past 15 s the next service starts in parallel
   const hedgeMs = Number(env.STT_HEDGE_MS ?? 15000);
-  const { provider, value } = await firstOf(list, p => providers[p](audio, env, mime), { hedgeMs });
+  const { provider, value } = await firstOf(list, p => providers[p](audio, env, mime, auto), { hedgeMs });
   return { text: value, provider, ms: Date.now() - t0 };
 }
