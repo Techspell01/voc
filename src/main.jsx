@@ -16,3 +16,14 @@ import App from './App.jsx';
 const bare = event => ({ ...event, url: event.url.split(/[?#]/)[0] });
 
 createRoot(document.getElementById('root')).render(<StrictMode><App /><Analytics beforeSend={bare} /></StrictMode>);
+
+// A page that is already open keeps running the JS it loaded with, even after the
+// new service worker takes over. Reload once when a different build takes charge,
+// or a fix deployed today never reaches an open tab or an installed app.
+if ('serviceWorker' in navigator) {
+  let had = !!navigator.serviceWorker.controller;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (had) location.reload();
+    had = true;
+  });
+}

@@ -209,7 +209,9 @@ ${said}`, editedAt: new Date().toISOString() }));
     }
   }
   const counts = { todo: agenda(notes, today).openCount, orders: openOrders(notes).length };
-  const canHear = online && (!server || !!server.stt?.length);
+  // The mic only needs the network. The status call is advice, never a switch:
+  // a slow or failed /api/status must not leave every microphone dead.
+  const canHear = online;
   const reader = settings.engine === 'offline' || !server?.llm?.length || !online ? 'offline reader' : `writing by ${cap(server.llm[0])}`;
   const statusLine = !online ? 'Offline · typed lists still work'
     : !server ? 'Connecting…'
