@@ -3,4 +3,8 @@
 -keep class com.techspell.voc.MainActivity { *; }
 -keep class com.techspell.voc.ime.** { *; }
 
+# Capacitor's bridge is called by name from the WebView; keep it whole so a minified
+# build cannot white-screen the app.
+-keep class com.getcapacitor.** { *; }
+
 -dontwarn org.apache.commons.**
