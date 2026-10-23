@@ -6,12 +6,13 @@
     <string name="custom_url_scheme">com.techspell.voc</string>
 
     <string name="ime_label">Voc keyboard</string>
-    <string name="ime_hint">Talk into any text box and Voc writes it in English</string>
+    <string name="ime_hint">Malayalam · Hindi · English</string>
     <string name="ime_tap">Tap to speak</string>
-    <string name="ime_stop">Stop</string>
-    <string name="ime_listening">listening… tap to stop</string>
-    <string name="ime_translating">writing it in English…</string>
-    <string name="ime_switch">Switch</string>
+    <string name="ime_stop">Stop and write it</string>
+    <string name="ime_listening">Listening…</string>
+    <string name="ime_translating">Writing it in English…</string>
+    <string name="ime_switch">Switch keyboard</string>
     <string name="ime_mic_denied">Microphone blocked. Allow it for Voc, then tap the mic again.</string>
+    <string name="ime_done">Written ✓</string>
     <string name="ime_copied">Copied — paste it into your chat.</string>
 </resources>

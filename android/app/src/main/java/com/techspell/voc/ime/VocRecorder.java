@@ -20,10 +20,17 @@ public class VocRecorder {
     private ByteArrayOutputStream pcm;
     private volatile boolean running;
     private volatile long bytes;
+    private volatile float level;
     private long limitBytes;
     private OnLimit onLimit;
 
     public synchronized boolean isRecording() { return record != null; }
+
+    /** How loud the last moment was, 0..1, for the mic rings and the wave. */
+    public float level() { return level; }
+
+    /** Bytes heard so far, turned into milliseconds at 16 kHz mono 16-bit. */
+    public long millis() { return bytes / 32L; }
 
     /** Starts listening. Throws SecurityException when the microphone is not allowed yet. */
     public synchronized void start(long maxBytes, OnLimit reached) throws IllegalStateException {
@@ -40,6 +47,7 @@ public class VocRecorder {
         limitBytes = maxBytes;
         onLimit = reached;
         bytes = 0;
+        level = 0f;
         record = r;
         pcm = out;
         running = true;
@@ -51,6 +59,7 @@ public class VocRecorder {
                 if (n <= 0) break;
                 synchronized (out) { out.write(chunk, 0, n); }
                 bytes += n;
+                loudness(chunk, n);
                 if (limitBytes > 0 && bytes >= limitBytes && running) {
                     running = false;
                     if (onLimit != null) onLimit.reached();
@@ -75,10 +84,25 @@ public class VocRecorder {
         record = null;
         thread = null;
         pcm = null;
+        level = 0f;
         onLimit = null;
         limitBytes = 0;
         bytes = 0;
         return data.length > 64 ? wav(data) : null;
+    }
+
+    private void loudness(byte[] chunk, int n) {
+        long sum = 0;
+        int samples = 0;
+        for (int i = 0; i + 1 < n; i += 2) {
+            int sample = (short) ((chunk[i] & 0xFF) | (chunk[i + 1] << 8));
+            sum += (long) sample * sample;
+            samples++;
+        }
+        if (samples == 0) return;
+        float rms = (float) Math.sqrt(sum / (double) samples);
+        float now = Math.min(1f, rms / 5200f);
+        level = now > level ? level + (now - level) * 0.6f : level * 0.8f;
     }
 
     private static byte[] wav(byte[] pcm) {

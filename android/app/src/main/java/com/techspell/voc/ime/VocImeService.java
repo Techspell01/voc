@@ -1,26 +1,32 @@
 package com.techspell.voc.ime;
 
+import android.app.Dialog;
 import android.content.ClipData;
 import android.content.ClipboardManager;
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.inputmethodservice.InputMethodService;
 import android.os.Handler;
 import android.os.Looper;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
 import android.view.inputmethod.InputConnection;
 import android.view.inputmethod.InputMethodManager;
-import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.techspell.voc.R;
 
+import java.util.Locale;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 /**
- * The Voc keyboard. Talk in Malayalam, Hindi, Manglish or English and it writes the English
- * reply straight into whatever text box is open, without leaving the app you are in.
+ * The Voc keyboard. It is not a keyboard: a floating bar with one coral mic. Talk in
+ * Malayalam, Hindi, Manglish or English and the English reply is written into whatever
+ * text box is open, without leaving the app you are in.
  */
 public class VocImeService extends InputMethodService {
 
@@ -31,16 +37,36 @@ public class VocImeService extends InputMethodService {
     private final ExecutorService io = Executors.newSingleThreadExecutor();
     private final VocRecorder recorder = new VocRecorder();
 
+    private VocMicView orb;
+    private VocWave wave;
+    private ImageButton mic;
     private TextView status;
-    private Button mic;
+    private TextView hint;
     private volatile boolean busy;
+
+    private final Runnable settleLater = this::settle;
+
+    private final Runnable tick = new Runnable() {
+        @Override
+        public void run() {
+            if (!recorder.isRecording()) return;
+            float level = recorder.level();
+            if (orb != null) orb.setLevel(level);
+            if (wave != null) wave.setLevel(level);
+            if (hint != null) hint.setText(clock(recorder.millis()));
+            ui.postDelayed(this, 90);
+        }
+    };
 
     @Override
     public View onCreateInputView() {
         View view = getLayoutInflater().inflate(R.layout.voc_ime, null);
-        status = view.findViewById(R.id.status);
+        orb = view.findViewById(R.id.orb);
+        wave = view.findViewById(R.id.wave);
         mic = view.findViewById(R.id.mic);
-        Button switchKeyboard = view.findViewById(R.id.switch_kb);
+        status = view.findViewById(R.id.status);
+        hint = view.findViewById(R.id.hint);
+        ImageButton switchKeyboard = view.findViewById(R.id.switch_kb);
 
         mic.setOnClickListener(v -> onMic());
         switchKeyboard.setOnClickListener(v -> {
@@ -48,21 +74,46 @@ public class VocImeService extends InputMethodService {
             if (imm != null) imm.showInputMethodPicker();
         });
 
-        if (!busy && !recorder.isRecording()) say(R.string.ime_tap);
+        clearWindow();
+        if (!busy && !recorder.isRecording()) settle();
         return view;
     }
 
     @Override
-    public void onStartInputView(android.view.inputmethod.EditorInfo info, boolean restarting) {
+    public void onStartInputView(EditorInfo info, boolean restarting) {
         super.onStartInputView(info, restarting);
-        if (!busy && !recorder.isRecording()) say(R.string.ime_tap);
+        clearWindow();
+        if (recorder.isRecording()) {
+            if (orb != null) orb.setRecording(true);
+            if (wave != null) wave.setActive(true);
+            if (mic != null) mic.setContentDescription(getString(R.string.ime_stop));
+            if (status != null) status.setText(R.string.ime_listening);
+            ui.removeCallbacks(tick);
+            ui.post(tick);
+        } else if (!busy) settle();
+    }
+
+    @Override
+    public void onFinishInputView(boolean finishingInput) {
+        if (!recorder.isRecording()) ui.removeCallbacks(tick);
+        super.onFinishInputView(finishingInput);
     }
 
     @Override
     public void onDestroy() {
+        ui.removeCallbacks(tick);
         recorder.stop();
         io.shutdown();
         super.onDestroy();
+    }
+
+    /** No window colour, no dimming: the pill floats over the app behind it. */
+    private void clearWindow() {
+        setCandidatesViewShown(false);
+        Dialog window = getWindow();
+        if (window == null || window.getWindow() == null) return;
+        window.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        window.getWindow().setDimAmount(0f);
     }
 
     private void onMic() {
@@ -75,6 +126,8 @@ public class VocImeService extends InputMethodService {
     }
 
     private void startRecording() {
+        ui.removeCallbacks(tick);
+        ui.removeCallbacks(settleLater);
         try {
             recorder.start(MAX_BYTES, () -> ui.post(this::finishRecording));
         } catch (Exception e) {
@@ -82,21 +135,29 @@ public class VocImeService extends InputMethodService {
             Toast.makeText(this, getString(R.string.ime_mic_denied), Toast.LENGTH_LONG).show();
             return;
         }
-        if (mic != null) { mic.setEnabled(true); mic.setText(R.string.ime_stop); }
-        say(R.string.ime_listening);
+        if (orb != null) orb.setRecording(true);
+        if (wave != null) { wave.setActive(true); wave.setLevel(0); }
+        if (mic != null) mic.setContentDescription(getString(R.string.ime_stop));
+        if (status != null) status.setText(R.string.ime_listening);
+        if (hint != null) hint.setText(clock(0));
+        ui.post(tick);
     }
 
     private void finishRecording() {
         if (!recorder.isRecording()) return;
         byte[] wav = recorder.stop();
-        if (mic != null) mic.setText(R.string.ime_tap);
+        ui.removeCallbacks(tick);
+        if (orb != null) orb.setRecording(false);
+        if (wave != null) wave.setActive(false);
+        if (mic != null) mic.setContentDescription(getString(R.string.ime_tap));
         if (wav == null) {
-            say(R.string.ime_tap);
+            settle();
             return;
         }
         busy = true;
         if (mic != null) mic.setEnabled(false);
-        say(R.string.ime_translating);
+        if (status != null) status.setText(R.string.ime_translating);
+        if (hint != null) hint.setText(R.string.ime_hint);
         io.execute(() -> {
             try {
                 String said = VocApi.transcribe(wav);
@@ -124,19 +185,29 @@ public class VocImeService extends InputMethodService {
                 if (clipboard != null) clipboard.setPrimaryClip(ClipData.newPlainText("Voc", text));
                 Toast.makeText(this, getString(R.string.ime_copied), Toast.LENGTH_LONG).show();
             }
-            settle();
+            busy = false;
+            if (mic != null) mic.setEnabled(true);
+            if (status != null) status.setText(R.string.ime_done);
+            ui.removeCallbacks(settleLater);
+            ui.postDelayed(settleLater, 1200);
         });
     }
 
     private void settle() {
+        if (recorder.isRecording()) return;
         busy = false;
         if (mic != null) mic.setEnabled(true);
-        say(R.string.ime_tap);
+        if (status != null) status.setText(R.string.ime_tap);
+        if (hint != null) hint.setText(R.string.ime_hint);
+        if (mic != null) mic.setContentDescription(getString(R.string.ime_tap));
     }
 
-    private void say(int text) { say(getString(text)); }
+    private static String clock(long ms) {
+        long s = ms / 1000;
+        return String.format(Locale.US, "%d:%02d", s / 60, s % 60);
+    }
 
-    private void say(String text) {
+    private void say(int text) {
         ui.post(() -> {
             if (status != null) status.setText(text);
         });
