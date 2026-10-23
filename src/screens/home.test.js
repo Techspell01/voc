@@ -1,4 +1,4 @@
-// Home makes an email; notes and lists are made in their own sections.
+// Home is the translator; email is made in Mail, notes and lists in their own sections.
 import { describe, expect, it } from 'vitest';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
@@ -8,22 +8,24 @@ import Todo from './Todo.jsx';
 
 const base = {
   busy: null, error: '', canHear: true, status: 'Speech by Gemini · writing by Gemini',
-  go() {}, onAudio() {}, onText() {}, onEdit() {}, today: '2026-10-21',
+  go() {}, onAudio() {}, onText() {}, onEdit() {}, today: '2026-10-21', result: null, onClear() {},
 };
 const render = (Screen, props = {}) => renderToStaticMarkup(createElement(Screen, { ...base, ...props }));
 
 describe('the Home screen', () => {
-  it('asks for an email, and offers the translator', () => {
+  it('is the translator, spoken or typed', () => {
     const html = render(New);
-    expect(html).toContain('Speak an');
-    expect(html).toContain('Record your email');
-    expect(html).toContain('Say your reply in English');
+    expect(html).toContain('Say your<br/>reply');
+    expect(html).toContain('Say your reply');
+    expect(html).toContain('Or type it');
+    expect(html).toContain('Try: hindi');
   });
 
-  it('no longer offers Note or Lists', () => {
+  it('no longer asks for an email, and offers no Note or Lists', () => {
     const html = render(New);
+    expect(html).not.toContain('Record your email');
+    expect(html).not.toContain('Speak an<br/>email');
     expect(html).not.toContain('Speak a note');
-    expect(html).not.toContain('Say it in<br/>Manglish');
     expect(html).not.toContain('role="radio"');
   });
 });
