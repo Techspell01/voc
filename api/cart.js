@@ -2,12 +2,16 @@
 // Sign-in with Zepto / Instamart and filling their cart. Tokens live on the phone;
 // this function only passes them through.
 import { exchange, fillCart, refresh, register, STORES } from '../server/carts.js';
-import { denied, json } from '../server/http.js';
+import { denied, json, limited, tooLarge } from '../server/http.js';
 
 export async function POST(request) {
   const env = process.env;
   const no = denied(request, env);
   if (no) return no;
+  const busy = limited(request, 'cart', 20);
+  if (busy) return busy;
+  const big = tooLarge(request, 256 * 1024);
+  if (big) return big;
   let b;
   try { b = await request.json(); } catch { return json({ error: 'bad', message: 'Bad request.' }, 400); }
   const store = String(b?.store ?? '');

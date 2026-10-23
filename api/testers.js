@@ -2,11 +2,15 @@
 // GET ?key=TESTERS_KEY -> the sign-ups as CSV, for Play Console's tester list.
 // Emails sit in the private Vercel Blob store "voc-testers" (BLOB_READ_WRITE_TOKEN).
 import { get, list, put } from '@vercel/blob';
-import { json } from '../server/http.js';
+import { json, limited, tooLarge } from '../server/http.js';
 import { blobName, checkSignup, phoneOf, sameKey, toCsv } from '../server/testers.js';
 
 export async function POST(request) {
   if (!process.env.BLOB_READ_WRITE_TOKEN) return json({ error: 'setup', message: "Sign-ups aren't open yet. Try again later." }, 503);
+  const busy = limited(request, 'testers', 10);
+  if (busy) return busy;
+  const big = tooLarge(request, 8 * 1024);
+  if (big) return big;
   let b;
   try { b = await request.json(); } catch { return json({ error: 'bad', message: 'Bad request.' }, 400); }
   const s = checkSignup(b);

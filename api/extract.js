@@ -1,13 +1,17 @@
 // POST { text, today } -> { result, engine }. The phone falls back to the
 // offline rule parser itself when this fails.
 import { appendToList, extractWithLLM } from '../server/extract.js';
-import { denied, failure, json } from '../server/http.js';
+import { denied, failure, json, limited, tooLarge } from '../server/http.js';
 import { todayIST } from '../src/lib/manglish/when.js';
 
 export async function POST(request) {
   const env = process.env;
   const no = denied(request, env);
   if (no) return no;
+  const busy = limited(request, 'extract', 40);
+  if (busy) return busy;
+  const big = tooLarge(request, 64 * 1024);
+  if (big) return big;
   let body;
   try { body = await request.json(); } catch { return json({ error: 'bad', message: 'Bad request.' }, 400); }
   const text = String(body?.text ?? '').trim();

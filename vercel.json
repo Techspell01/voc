@@ -4,14 +4,26 @@
     { "source": "/android", "destination": "/index.html" }
   ],
   "functions": { "api/*.js": { "maxDuration": 60 } },
-    "headers": [
+  "headers": [
     { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] },
     {
       "source": "/api/(.*)",
-  "headers": [
+      "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "https://localhost" },
         { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
-        { "key": "Access-Control-Allow-Headers", "value": "content-type, x-app-key" }
+        { "key": "Access-Control-Allow-Headers", "value": "content-type, x-app-key" },
+        { "key": "Access-Control-Max-Age", "value": "86400" }
+      ]
+    },
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "Content-Security-Policy", "value": "default-src 'self'; script-src 'self' 'sha256-nQQsbZLUGxDKfn0dABUicVI3yuIUEgYu4v2+4Y2QksA='; style-src 'self' 'unsafe-inline'; img-src 'self' data: blob:; font-src 'self'; media-src 'self' blob:; connect-src 'self' https://*.vercel-insights.com; worker-src 'self'; manifest-src 'self'; base-uri 'none'; form-action 'self'; frame-ancestors 'none'; object-src 'none'; upgrade-insecure-requests" },
+        { "key": "Strict-Transport-Security", "value": "max-age=63072000; includeSubDomains; preload" },
+        { "key": "X-Content-Type-Options", "value": "nosniff" },
+        { "key": "X-Frame-Options", "value": "DENY" },
+        { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
+        { "key": "Permissions-Policy", "value": "camera=(), microphone=(self), geolocation=(), payment=(), usb=()" }
       ]
     }
   ]

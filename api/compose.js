@@ -1,13 +1,17 @@
 // POST { kind: 'email' | 'note' | 'append' | 'rewrite' | 'translate', text, today, name?, tone?, email?, how?, note? }
 //   -> { result, engine }
 import { addToNote, rewriteEmail, translate, writeEmail, writeNote } from '../server/compose.js';
-import { denied, failure, json } from '../server/http.js';
+import { denied, failure, json, limited, tooLarge } from '../server/http.js';
 import { todayIST } from '../src/lib/manglish/when.js';
 
 export async function POST(request) {
   const env = process.env;
   const no = denied(request, env);
   if (no) return no;
+  const busy = limited(request, 'compose', 40);
+  if (busy) return busy;
+  const big = tooLarge(request, 64 * 1024);
+  if (big) return big;
   let b;
   try { b = await request.json(); } catch { return json({ error: 'bad', message: 'Bad request.' }, 400); }
   const today = /^\d{4}-\d{2}-\d{2}$/.test(b?.today) ? b.today : todayIST();

@@ -45,11 +45,26 @@ export default function App() {
     window.scrollTo(0, 0);
   }, [tab]);
   useEffect(() => {
-    status().then(setServer).catch(() => setServer({ stt: [], llm: [], down: true }));
-    const on = () => setOnline(navigator.onLine);
+    let alive = true;
+    let timer;
+    // A dropped status call must not leave every mic dead until a reload: unknown
+    // reads as "try it" (the recording itself will say if the server is away), and
+    // we keep asking in the background until an answer arrives.
+    const check = () => status()
+      .then(s => { if (alive) setServer(s); })
+      .catch(() => {
+        if (!alive) return;
+        setServer(null);
+        if (navigator.onLine) timer = setTimeout(check, 6000);
+      });
+    check();
+    const on = () => {
+      setOnline(navigator.onLine);
+      if (navigator.onLine) { clearTimeout(timer); check(); }
+    };
     addEventListener('online', on);
     addEventListener('offline', on);
-    return () => { removeEventListener('online', on); removeEventListener('offline', on); };
+    return () => { alive = false; clearTimeout(timer); removeEventListener('online', on); removeEventListener('offline', on); };
   }, []);
 
   // Back from Zepto / Instamart sign-in (/zepto-callback): finish it, then fill that order's cart.
@@ -194,7 +209,7 @@ ${said}`, editedAt: new Date().toISOString() }));
     }
   }
   const counts = { todo: agenda(notes, today).openCount, orders: openOrders(notes).length };
-  const canHear = !!server?.stt?.length && online;
+  const canHear = online && (!server || !!server.stt?.length);
   const reader = settings.engine === 'offline' || !server?.llm?.length || !online ? 'offline reader' : `writing by ${cap(server.llm[0])}`;
   const statusLine = !online ? 'Offline · typed lists still work'
     : !server ? 'Connecting…'
