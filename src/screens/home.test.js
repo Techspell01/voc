@@ -31,6 +31,16 @@ describe('the Home screen', () => {
   });
 });
 
+describe('the Orders screen', () => {
+  // A screen given explicit props instead of {...shared} once lost canHear, so the
+  // mic was disabled for everyone on Orders. A missing prop must not do that again.
+  it('keeps the mic live when a caller forgets to pass canHear', () => {
+    const html = render(Orders, { notes: [], canHear: undefined });
+    expect(html).toContain('aria-label="Speak an order"');
+    expect(html).not.toContain('class="fab f-coral" disabled');
+  });
+});
+
 describe('the Mail screen', () => {
   it('makes an email by voice or by typing', () => {
     const html = render(Mail, { notes: [], open: null, setOpen() {}, onRewrite() {} });

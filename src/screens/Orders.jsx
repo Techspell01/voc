@@ -70,7 +70,7 @@ function Order({ note, tone, today, onEdit, busy }) {
   );
 }
 
-export default function Orders({ notes, today, go, onAudio, onText, onEdit, busy, error, canHear }) {
+export default function Orders({ notes, today, go, onAudio, onText, onEdit, busy, error, canHear = true }) {
   const [show, setShow] = useState('open');
   const [text, setText] = useState('');
   const withItems = notes.filter(n => n.result?.items?.length);

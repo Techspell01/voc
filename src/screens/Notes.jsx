@@ -10,7 +10,7 @@ import { copy } from '../lib/share.js';
 import { removeNote } from '../lib/store.js';
 import { engineName } from '../lib/labels.js';
 
-export default function Notes({ notes, live, setLive, onAudio, onText, onAppend, busy, error, canHear }) {
+export default function Notes({ notes, live, setLive, onAudio, onText, onAppend, busy, error, canHear = true }) {
   const [open, setOpen] = useState(null);
   const [q, setQ] = useState('');
   const [heard, setHeard] = useState(false);

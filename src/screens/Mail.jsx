@@ -8,7 +8,7 @@ import { BusyBars } from '../components/bits.jsx';
 import { ago } from '../lib/format.js';
 import { removeNote } from '../lib/store.js';
 
-export default function Mail({ notes, open, setOpen, onAudio, onText, onRewrite, busy, error, canHear }) {
+export default function Mail({ notes, open, setOpen, onAudio, onText, onRewrite, busy, error, canHear = true }) {
   const [draft, setDraft] = useState('');
   const emails = notes.filter(n => n.kind === 'email');
   const opened = emails.find(n => n.id === open);

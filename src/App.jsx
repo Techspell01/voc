@@ -225,7 +225,7 @@ ${said}`, editedAt: new Date().toISOString() }));
         {tab === 'mail' && <Mail {...shared} open={openMail} setOpen={setOpenMail} onAudio={handleAudio} onText={handleText} onRewrite={rewrite} />}
         {tab === 'notes' && <Notes {...shared} live={live} setLive={setLive} onAudio={handleAudio} onText={handleText} onAppend={appendNote} />}
         {tab === 'todo' && <Todo notes={notes} today={today} go={go} />}
-        {tab === 'orders' && <Orders notes={notes} today={today} go={go} onAudio={handleAudio} onText={handleText} onEdit={appendList} />}
+        {tab === 'orders' && <Orders {...shared} onAudio={handleAudio} onText={handleText} onEdit={appendList} />}
         {tab === 'settings' && <Settings notes={notes} server={server} go={go} />}
         {tab === 'android' && <Android go={go} />}
         {tab === 'translate' && <Translate {...shared} onAudio={handleAudio} onText={handleText} result={translation} onClear={() => setTranslation(null)} />}
