@@ -205,7 +205,7 @@ ${said}`, editedAt: new Date().toISOString() }));
     <>
       <main className={`screen${LIGHT.has(tab) ? ' light' : ''}`}>
         {tab === 'new' && <New {...shared} onAudio={handleAudio} onText={handleText} status={statusLine} result={translation} onClear={() => setTranslation(null)} />}
-        {tab === 'mail' && <Mail {...shared} open={openMail} setOpen={setOpenMail} onAudio={handleAudio} onRewrite={rewrite} />}
+        {tab === 'mail' && <Mail {...shared} open={openMail} setOpen={setOpenMail} onAudio={handleAudio} onText={handleText} onRewrite={rewrite} />}
         {tab === 'notes' && <Notes {...shared} live={live} setLive={setLive} onAudio={handleAudio} onText={handleText} onAppend={appendNote} />}
         {tab === 'todo' && <Todo notes={notes} today={today} go={go} />}
         {tab === 'orders' && <Orders notes={notes} today={today} go={go} onAudio={handleAudio} onText={handleText} onEdit={appendList} />}

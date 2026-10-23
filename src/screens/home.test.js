@@ -3,6 +3,7 @@ import { describe, expect, it } from 'vitest';
 import { createElement } from 'react';
 import { renderToStaticMarkup } from 'react-dom/server';
 import New from './New.jsx';
+import Mail from './Mail.jsx';
 import Orders from './Orders.jsx';
 import Todo from './Todo.jsx';
 
@@ -27,6 +28,14 @@ describe('the Home screen', () => {
     expect(html).not.toContain('Speak an<br/>email');
     expect(html).not.toContain('Speak a note');
     expect(html).not.toContain('role="radio"');
+  });
+});
+
+describe('the Mail screen', () => {
+  it('makes an email by voice or by typing', () => {
+    const html = render(Mail, { notes: [], open: null, setOpen() {}, onRewrite() {} });
+    expect(html).toContain('Speak an<br/>email');
+    expect(html).toContain('Or type it');
   });
 });
 
