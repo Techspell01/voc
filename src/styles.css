@@ -182,19 +182,6 @@ a { color: inherit; text-decoration: none; }
 @keyframes eq { 0%, 100% { height: 6px; } 50% { height: 22px; } }
 
 /* chat ------------------------------------------------------------------------- */
-.chat { display: flex; flex-direction: column; gap: 10px; margin-top: 18px; }
-.msg { display: flex; gap: 10px; align-items: flex-end; }
-.bubble { border-radius: 20px; padding: 12px 14px; max-width: 86%; font-size: 13px; }
-.bubble.me { background: var(--ice); color: var(--ink); margin-left: auto; border-bottom-right-radius: 6px; }
-.bubble.bot { background: var(--night-3); color: var(--on-night); border-bottom-left-radius: 6px; }
-.light .bubble.bot { background: #262626; }
-.bubble .roman { margin-top: 6px; font-size: 11.5px; opacity: 0.7; }
-.hl { padding: 1px 7px; border-radius: 7px; background: rgba(255, 255, 255, 0.12); white-space: nowrap; }
-.hl.yellow { color: var(--yellow); }
-.hl.coral { color: var(--coral-2); }
-.hl.violet { color: var(--violet-2); }
-.hl.ice { color: var(--ice); }
-.replies { display: flex; flex-wrap: wrap; gap: 6px; justify-content: flex-end; }
 .reply { border: 0; border-radius: 12px; padding: 7px 12px; font: 500 12px var(--mono); background: var(--ice); color: var(--ink); }
 .reply.sage { background: var(--mint); }
 .reply.yellow { background: var(--yellow-2); }
@@ -263,18 +250,6 @@ ul.plain li + li { margin-top: 6px; }
 .select-pill { position: relative; cursor: pointer; flex: none; }
 .select-pill select { position: absolute; inset: 0; opacity: 0; width: 100%; cursor: pointer; }
 
-/* mode tiles on Home: Email · Note · Lists ------------------------------------------ */
-.modes { display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; margin-top: 12px; }
-.mode {
-  border: 0; border-radius: 20px; padding: 12px 12px 10px; text-align: left; background: var(--night-2); color: var(--on-night);
-  display: grid; gap: 10px; transition: background 0.2s, transform 0.1s;
-}
-.mode .ic { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; background: rgba(255, 255, 255, 0.1); }
-.mode .name { font: 600 21px/1 var(--display); text-transform: uppercase; letter-spacing: 0.3px; }
-.mode[aria-checked="true"] { background: var(--mode); color: var(--ink); }
-.mode[aria-checked="true"] .ic { background: var(--ink); color: #fff; }
-.mode:active { transform: scale(0.97); }
-
 /* sticky notes --------------------------------------------------------------------- */
 .hand { font-family: "Caveat", var(--ml), cursive; }
 .wall { columns: 2; column-gap: 14px; margin-top: 18px; }
@@ -341,6 +316,7 @@ button.sticky:hover { transform: rotate(0deg) translateY(-2px); }
   box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
 }
 .fab.f-yellow { background: var(--yellow); }
+.fab.f-coral { background: var(--coral); }
 .fab.f-violet { background: var(--violet); }
 .fab:disabled { opacity: 0.45; }
 .fab:active { transform: scale(0.94); }

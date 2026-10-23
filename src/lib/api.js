@@ -1,5 +1,10 @@
 // Talking to our own api/ functions. Every failure becomes a plain message.
 import { getSettings } from './store.js';
+import { Capacitor } from '@capacitor/core';
+
+// In the Android app there is no local server, so call the live backend.
+// On the website this stays empty and the relative /api/... paths work as before.
+const API_BASE = Capacitor.isNativePlatform() ? 'https://usevoc.vercel.app' : '';
 
 export class ApiError extends Error {
   constructor(message, code) { super(message); this.code = code; }
@@ -9,7 +14,7 @@ async function request(path, init = {}, timeoutMs = 60000) {
   const key = getSettings().appKey;
   let res;
   try {
-    res = await fetch(path, {
+   res = await fetch(API_BASE + path, {
       ...init,
       headers: { ...(init.headers ?? {}), ...(key ? { 'x-app-key': key } : {}) },
       signal: AbortSignal.timeout(timeoutMs),
@@ -24,7 +29,9 @@ async function request(path, init = {}, timeoutMs = 60000) {
 
 export const status = () => request('/api/status', {}, 8000);
 
-export const transcribeChunk = wavBlob => request('/api/transcribe', {
+// { lang: 'auto' } asks the speech service to work out Malayalam / Hindi / English
+// itself (the Translate screen). Every other screen keeps the Manglish prompt.
+export const transcribeChunk = (wavBlob, { lang } = {}) => request(lang ? `/api/transcribe?lang=${encodeURIComponent(lang)}` : '/api/transcribe', {
   method: 'POST', headers: { 'content-type': 'audio/wav' }, body: wavBlob,
 });
 

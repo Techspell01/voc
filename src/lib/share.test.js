@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { qtyText, timeText, whenText } from './format.js';
-import { googleCalendarUrl, icsFile, orderText } from './share.js';
+import { googleCalendarUrl, orderText } from './share.js';
 import { clean } from '../../server/extract.js';
 import { scoreCase } from '../../eval/score.js';
 
@@ -26,9 +26,6 @@ describe('share', () => {
   });
   it('builds calendar entries in Kerala time', () => {
     expect(googleCalendarUrl({ title: 'Meeting', date: '2026-10-09', time: '17:30' })).toContain('dates=20261009T173000%2F20261009T183000&ctz=Asia%2FKolkata');
-    const ics = icsFile([{ title: 'Meeting', date: '2026-10-09', time: '17:30' }, { title: 'Wedding', date: '2026-10-12', time: null }]);
-    expect(ics).toContain('DTSTART:20261009T120000Z');          // 17:30 IST
-    expect(ics).toContain('DTSTART;VALUE=DATE:20261012');
   });
 });
 

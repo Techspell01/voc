@@ -63,7 +63,7 @@ export default function Mail({ notes, open, setOpen, onAudio, onRewrite, busy, e
         </section>
       ))}
       {!canHear && <div className="gap" />}
-      {!canHear && <Btn tone="light" icon="edit" onClick={() => go('new', null, 'email')}>Type an email instead</Btn>}
+      {!canHear && <Btn tone="light" icon="edit" onClick={() => go('new')}>Type an email instead</Btn>}
       <RecordFab tone="violet" what="email" label="Speak an email" disabled={!canHear || !!busy} onAudio={blob => onAudio(blob, 'voice', 'email')} error={busy ? '' : error} />
     </>
   );

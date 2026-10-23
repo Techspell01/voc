@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- What the system is told about the Voc keyboard. -->
+<input-method xmlns:android="http://schemas.android.com/apk/res/android"
+    android:supportsSwitchingToNextInputMethod="true">
+    <subtype
+        android:label="@string/ime_label"
+        android:imeSubtypeMode="voice"
+        android:imeSubtypeLocale="en_IN" />
+</input-method>

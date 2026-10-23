@@ -27,42 +27,6 @@ export function googleCalendarUrl(ev) {
   return `https://calendar.google.com/calendar/render?${q}`;
 }
 
-// IST -> UTC for .ics (no time-zone block needed).
-function utcStamp(date, time) {
-  const d = new Date(`${date}T${time}:00+05:30`);
-  return d.toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-}
-const esc = s => String(s ?? '').replace(/[\\;,]/g, m => `\\${m}`).replace(/\n/g, '\\n');
-
-// One .ics for any calendar app, with a reminder 30 minutes before (or 9 am for all-day).
-export function icsFile(entries) {
-  const now = new Date().toISOString().replace(/[-:]/g, '').replace(/\.\d{3}/, '');
-  const body = entries.map((ev, n) => {
-    const timed = !!ev.time;
-    return [
-      'BEGIN:VEVENT',
-      `UID:${now}-${n}@voc`,
-      `DTSTAMP:${now}`,
-      timed ? `DTSTART:${utcStamp(ev.date, ev.time)}` : `DTSTART;VALUE=DATE:${compact(ev.date)}`,
-      timed ? `DTEND:${utcStamp(ev.date, plusHour(ev.time))}` : `DTEND;VALUE=DATE:${compact(nextDay(ev.date))}`,
-      `SUMMARY:${esc(ev.title)}`,
-      ev.said ? `DESCRIPTION:${esc(`"${ev.said}" (from Voc)`)}` : '',
-      'BEGIN:VALARM', 'ACTION:DISPLAY', `DESCRIPTION:${esc(ev.title)}`, timed ? 'TRIGGER:-PT30M' : 'TRIGGER:PT9H', 'END:VALARM',
-      'END:VEVENT',
-    ].filter(Boolean).join('\r\n');
-  });
-  return ['BEGIN:VCALENDAR', 'VERSION:2.0', 'PRODID:-//Voc//EN', 'CALSCALE:GREGORIAN', ...body, 'END:VCALENDAR'].join('\r\n');
-}
-
-export function download(name, text, type) {
-  const url = URL.createObjectURL(new Blob([text], { type }));
-  const a = Object.assign(document.createElement('a'), { href: url, download: name });
-  document.body.append(a);
-  a.click();
-  a.remove();
-  setTimeout(() => URL.revokeObjectURL(url), 2000);
-}
-
 export async function copy(text) {
   try { await navigator.clipboard.writeText(text); return true; } catch { return false; }
 }

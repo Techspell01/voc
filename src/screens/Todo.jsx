@@ -96,7 +96,7 @@ export default function Todo({ notes, today, go }) {
         <section className="card night-card">
           <h2 className="card-title">{picked ? 'Nothing that day' : 'Nothing due'}</h2>
           <p className="desc muted">To-dos and dates from your notes collect here, sorted by day.</p>
-          {!picked && <div className="btns"><Btn tone="light" icon="mic" onClick={() => go('new')}>Record a note</Btn></div>}
+          {!picked && <div className="btns"><Btn tone="light" icon="mic" onClick={() => go('orders')}>Record a list</Btn></div>}
         </section>
       )}
 

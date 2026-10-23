@@ -19,8 +19,8 @@ let settings = { engine: 'auto', appKey: '', name: '', tone: 'formal', noteLang:
 const emit = () => listeners.forEach(l => l());
 const subscribe = l => { listeners.add(l); return () => listeners.delete(l); };
 
-export const useNotes = () => useSyncExternalStore(subscribe, () => notes);
-export const useSettings = () => useSyncExternalStore(subscribe, () => settings);
+export const useNotes = () => useSyncExternalStore(subscribe, () => notes, () => notes);
+export const useSettings = () => useSyncExternalStore(subscribe, () => settings, () => settings);
 export const getSettings = () => settings;
 export const getNotes = () => notes;
 

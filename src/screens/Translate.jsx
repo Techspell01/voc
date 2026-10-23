@@ -1,6 +1,7 @@
 // Say your reply in Malayalam, Hindi or Manglish and get it in English, ready to
 // paste into WhatsApp. Nothing is saved and nothing appears in Notes or Orders.
-import { useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Capacitor } from '@capacitor/core';
 import { BusyBars, Btn, Chip, Circle, COLORS, ScreenHead } from '../components/bits.jsx';
 import { Icon } from '../components/Icons.jsx';
 import { MAX_SEC } from '../lib/recorder.js';
@@ -20,6 +21,22 @@ export default function Translate({ busy, error, canHear, go, onAudio, onText, r
   const fileRef = useRef(null);
   const r = useRecorder(blob => onAudio(blob, 'voice', 'translate'));
   const working = !!busy && busy.kind === 'translate';
+  const inApp = Capacitor.isNativePlatform();
+  const lastCopied = useRef('');
+
+  // The English reply goes on the clipboard the moment it arrives, so all that is
+  // left is to paste it into the chat. A browser may refuse the copy without a tap
+  // first, and then the Copy button below is still there.
+  useEffect(() => {
+    const t = result?.text ?? '';
+    if (!t || t === lastCopied.current) return;
+    lastCopied.current = t;
+    copy(t).then(ok => {
+      if (!ok) return;
+      setCopied(true);
+      setTimeout(() => setCopied(false), 1600);
+    });
+  }, [result]);
 
   function submit() {
     const t = text.trim();
@@ -90,8 +107,8 @@ export default function Translate({ busy, error, canHear, go, onAudio, onText, r
           {result.said && <p className="note-line muted">{result.stt ? 'You said: ' : 'You typed: '}{result.said}</p>}
           {result.fallback && <p className="note-line muted">{result.fallback}</p>}
           <div className="btns">
-            <Btn icon="copy" tone="light" onClick={doCopy}>{copied ? 'Copied' : 'Copy'}</Btn>
             <Btn icon="send" tone="light" href={whatsappUrl(result.text)}>WhatsApp</Btn>
+            <Btn icon="copy" tone="light" onClick={doCopy}>{copied ? 'Copied' : 'Copy'}</Btn>
             {canShare && <Btn icon="share" tone="light" onClick={share}>Share</Btn>}
           </div>
         </section>
@@ -118,6 +135,19 @@ export default function Translate({ busy, error, canHear, go, onAudio, onText, r
         </div>
         <p className="note-line muted">Nothing is kept: this is only a translation.</p>
       </section>
+
+      {inApp && (
+        <section className="card night-card">
+          <h2 className="card-title">Talk into WhatsApp itself</h2>
+          <p className="desc muted">With the Voc keyboard on, you can speak while the chat box is open and the English reply is written straight into it.</p>
+          <ul className="plain small">
+            <li>Phone Settings → Keyboard → On-screen keyboard → Voc keyboard, and turn it on.</li>
+            <li>In any chat, open the keyboard switcher and choose <b>Voc keyboard</b>.</li>
+            <li>Tap <b>Tap to speak</b>, say your reply in Malayalam, Hindi or Manglish, then tap Stop.</li>
+          </ul>
+          <p className="note-line muted">The keyboard only hears you while you hold it open, and keeps nothing.</p>
+        </section>
+      )}
     </>
   );
 }

@@ -6,3 +6,5 @@ export function GET() {
   const env = process.env;
   return json({ stt: sttProviders(env), llm: llmProviders(env), locked: !!env.APP_KEY });
 }
+
+export function OPTIONS() { return new Response(null, { status: 204 }); }

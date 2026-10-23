@@ -4,7 +4,15 @@
     { "source": "/android", "destination": "/index.html" }
   ],
   "functions": { "api/*.js": { "maxDuration": 60 } },
+    "headers": [
+    { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] },
+    {
+      "source": "/api/(.*)",
   "headers": [
-    { "source": "/sw.js", "headers": [{ "key": "Cache-Control", "value": "no-cache" }] }
+        { "key": "Access-Control-Allow-Origin", "value": "https://localhost" },
+        { "key": "Access-Control-Allow-Methods", "value": "GET, POST, OPTIONS" },
+        { "key": "Access-Control-Allow-Headers", "value": "content-type, x-app-key" }
+      ]
+    }
   ]
 }

@@ -8,14 +8,15 @@ import { PendingSticky, StickyNote } from '../components/Sticky.jsx';
 import RecordFab from '../components/RecordPanel.jsx';
 import { copy } from '../lib/share.js';
 import { removeNote } from '../lib/store.js';
-import { engineName } from '../components/NoteView.jsx';
+import { engineName } from '../lib/labels.js';
 
-export default function Notes({ notes, live, setLive, onAudio, onAppend, busy, error, canHear, go }) {
+export default function Notes({ notes, live, setLive, onAudio, onText, onAppend, busy, error, canHear }) {
   const [open, setOpen] = useState(null);
   const [q, setQ] = useState('');
   const [heard, setHeard] = useState(false);
   const [copied, setCopied] = useState(false);
   const [more, setMore] = useState('');
+  const [draft, setDraft] = useState('');
   const rec = useRecorder(blob => onAppend(open, { blob }));
   const stickies = notes.filter(n => n.kind === 'sticky');
   const opened = stickies.find(n => n.id === open);
@@ -80,7 +81,19 @@ export default function Notes({ notes, live, setLive, onAudio, onAppend, busy, e
         <section className="card night-card">
           <h2 className="card-title">Speak a note</h2>
           <p className="desc muted">Tap the yellow mic and talk, in Malayalam or Manglish. When you stop, your note writes itself onto a sticky, in English.</p>
-          {!canHear && <div className="btns"><Btn tone="light" icon="edit" onClick={() => go('new', null, 'note')}>Type a note instead</Btn></div>}
+          {!canHear && (
+            <div className="composer">
+              <span className="icon">{Icon.edit(20)}</span>
+              <div className="field">
+                <input value={draft} onChange={e => setDraft(e.target.value)} placeholder="Or type it: nale bank-il pokanam…" aria-label="Note to write"
+                  onKeyDown={e => { if (e.key === 'Enter' && draft.trim() && !busy) { e.preventDefault(); onText(draft.trim(), 'typed', 'note'); setDraft(''); } }} />
+                {draft.trim() && (
+                  <Circle icon="up" tone="ice" label="Write the note" disabled={!!busy}
+                    onClick={() => { onText(draft.trim(), 'typed', 'note'); setDraft(''); }} />
+                )}
+              </div>
+            </div>
+          )}
         </section>
       )}
       <div className="wall">

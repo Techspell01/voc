@@ -28,7 +28,6 @@ export default function App() {
   const notes = useNotes();
   const settings = useSettings();
   const [tab, setTab] = useState(() => (ROUTES.has(location.hash.slice(1)) ? location.hash.slice(1) : 'new'));
-  const [current, setCurrent] = useState(null);     // the lists note shown on Home
   const [openMail, setOpenMail] = useState(null);
   const [live, setLive] = useState(null);           // { id, from }: the sticky that is writing itself
   const [busy, setBusy] = useState(null);           // { kind, stage }
@@ -37,9 +36,8 @@ export default function App() {
   const [server, setServer] = useState(null);
   const [online, setOnline] = useState(navigator.onLine);
   const today = todayIST();
-  const mode = settings.mode ?? 'email';
 
-  const go = (id, _focus = null, m = null) => { if (m) setSettings({ mode: m }); setTab(id); };
+  const go = id => setTab(id);
 
   useEffect(() => {
     history.replaceState(null, '', tab === 'new' ? location.pathname : `#${tab}`);
@@ -76,11 +74,12 @@ export default function App() {
     });
   }, []);
 
-  // Where each kind of note goes once it's written.
-  function show(kind, id) {
+  // Where each kind of note goes once it's written: notes to the Notes section,
+  // lists to Orders (or To-do when the note only made to-dos and dates).
+  function show(kind, id, out) {
     if (kind === 'email') { setOpenMail(id); setTab('mail'); }
     else if (kind === 'note') { setLive({ id, from: 0 }); setTab('notes'); }
-    else { setCurrent(id); setTab('new'); }
+    else setTab(out?.result?.items?.length ? 'orders' : 'todo');
   }
 
   async function write(kind, transcript, stage) {
@@ -90,7 +89,7 @@ export default function App() {
   }
   const stored = kind => (kind === 'note' ? 'sticky' : kind);   // notes are stored as stickies
 
-  async function handleAudio(blob, source, kind = mode) {
+  async function handleAudio(blob, source, kind = 'email') {
     setError('');
     const stage = s => setBusy({ kind, stage: s });
     if (kind === 'note' && tab !== 'notes') setTab('notes');
@@ -102,7 +101,7 @@ export default function App() {
         return;
       }
       const out = await write(kind, heard.transcript, stage);
-      show(kind, addNote({ kind: stored(kind), source, transcript: heard.transcript, stt: heard.provider, seconds: heard.seconds, ...out }));
+      show(kind, addNote({ kind: stored(kind), source, transcript: heard.transcript, stt: heard.provider, seconds: heard.seconds, ...out }), out);
     } catch (err) {
       setError(err.message || 'Something went wrong.');
     } finally {
@@ -110,7 +109,7 @@ export default function App() {
     }
   }
 
-  async function handleText(text, source, kind = mode) {
+  async function handleText(text, source, kind = 'email') {
     setError('');
     const stage = s => setBusy({ kind, stage: s });
     try {
@@ -120,7 +119,7 @@ export default function App() {
         return;
       }
       const out = await write(kind, text, stage);
-      show(kind, addNote({ kind: stored(kind), source, transcript: text, ...out }));
+      show(kind, addNote({ kind: stored(kind), source, transcript: text, ...out }), out);
     } catch (err) {
       setError(err.message || 'Something went wrong.');
     } finally {
@@ -128,17 +127,7 @@ export default function App() {
     }
   }
 
-  async function reread(id, text) {
-    setError('');
-    try {
-      const out = await readNote(text, s => setBusy({ kind: 'lists', stage: s }));
-      updateNote(id, { transcript: text, done: {}, ...out, fallback: out.fallback ?? null });
-    } finally {
-      setBusy(null);
-    }
-  }
-
-// More for an existing sticky: hear it (or take the typed text), write just the new lines, append them live.
+  // More for an existing sticky: hear it (or take the typed text), write just the new lines, append them live.
   async function appendNote(id, { blob, text }) {
     const note = notes.find(n => n.id === id);
     if (!note) return;
@@ -205,7 +194,6 @@ ${said}`, editedAt: new Date().toISOString() }));
     }
   }
   const counts = { todo: agenda(notes, today).openCount, orders: openOrders(notes).length };
-  const note = notes.find(n => n.id === current);
   const canHear = !!server?.stt?.length && online;
   const reader = settings.engine === 'offline' || !server?.llm?.length || !online ? 'offline reader' : `writing by ${cap(server.llm[0])}`;
   const statusLine = !online ? 'Offline · typed lists still work'
@@ -216,11 +204,11 @@ ${said}`, editedAt: new Date().toISOString() }));
   return (
     <>
       <main className={`screen${LIGHT.has(tab) ? ' light' : ''}`}>
-        {tab === 'new' && <New {...shared} mode={mode} setMode={m => setSettings({ mode: m })} onAudio={handleAudio} onText={handleText} onReread={reread} onEdit={appendList} note={note} status={statusLine} />}
+        {tab === 'new' && <New {...shared} onAudio={handleAudio} onText={handleText} status={statusLine} />}
         {tab === 'mail' && <Mail {...shared} open={openMail} setOpen={setOpenMail} onAudio={handleAudio} onRewrite={rewrite} />}
-        {tab === 'notes' && <Notes {...shared} live={live} setLive={setLive} onAudio={handleAudio} onAppend={appendNote} />}
+        {tab === 'notes' && <Notes {...shared} live={live} setLive={setLive} onAudio={handleAudio} onText={handleText} onAppend={appendNote} />}
         {tab === 'todo' && <Todo notes={notes} today={today} go={go} />}
-        {tab === 'orders' && <Orders notes={notes} today={today} go={go} />}
+        {tab === 'orders' && <Orders notes={notes} today={today} go={go} onAudio={handleAudio} onText={handleText} onEdit={appendList} />}
         {tab === 'settings' && <Settings notes={notes} server={server} go={go} />}
         {tab === 'android' && <Android go={go} />}
         {tab === 'translate' && <Translate {...shared} onAudio={handleAudio} onText={handleText} result={translation} onClear={() => setTranslation(null)} />}

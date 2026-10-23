@@ -1,0 +1,256 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<title>Voc promo</title>
+<!-- Promo images for LinkedIn and X. Rendered by scripts/promo.mjs at exact sizes:
+     promo.html?v=<variant>. Uses the app's own fonts, colours and real screenshots. -->
+<script type="module">
+  import '@fontsource/barlow-condensed/600.css';
+  import '@fontsource/dm-mono/400.css';
+  import '@fontsource/dm-mono/500.css';
+  import '@fontsource/caveat/700.css';
+  import '@fontsource/noto-sans-malayalam/malayalam-400.css';
+  import '@fontsource/noto-sans-malayalam/malayalam-700.css';
+  const v = new URLSearchParams(location.search).get('v') || 'hero-square';
+  document.querySelectorAll('[data-v]').forEach(el => { el.hidden = el.dataset.v !== v; });
+  document.fonts.ready.then(() => { document.body.dataset.ready = '1'; });
+</script>
+<style>
+  :root {
+    --ink: #161616; --ink-2: #474747; --cream: #F5F2EA; --night: #1D1D1D; --night-2: #2B2B2B;
+    --sage: #C9D7CC; --coral: #F2705F; --violet: #8489F2; --yellow: #F4C44D; --yellow-2: #F8D985;
+    --ice: #BEE7EE; --mint: #A9DCC6; --coral-2: #F6978A; --violet-2: #A9ADF7;
+    --display: "Barlow Condensed", "Arial Narrow", sans-serif;
+    --mono: "DM Mono", ui-monospace, monospace;
+    --ml: "Noto Sans Malayalam", "Nirmala UI", sans-serif;
+    --hand: "Caveat", cursive;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; background: #888; }
+  .art { position: relative; overflow: hidden; background: var(--sage); color: var(--ink); font-family: var(--mono), var(--ml); }
+  .art.night { background: var(--night); color: #F2F2F2; }
+  .art.cream { background: var(--cream); }
+  .sq { width: 1200px; height: 1200px; padding: 72px; }
+  .wide { width: 1600px; height: 900px; padding: 72px 80px; }
+  .tall { width: 1080px; height: 1350px; padding: 72px; }
+
+  h1 { margin: 0; font: 600 132px/0.88 var(--display); text-transform: uppercase; letter-spacing: 0.5px; }
+  .tall h1 { font-size: 104px; }
+  .wide h1 { font-size: 118px; }
+  h1 .tag { display: inline-block; padding: 0 22px 6px; border-radius: 26px; background: var(--coral); }
+  h1 .tag.violet { background: var(--violet); }
+  h1 .tag.yellow { background: var(--yellow); }
+  h1 .tag.ice { background: var(--ice); color: var(--ink); }
+  .sub { margin: 26px 0 0; font-size: 27px; line-height: 1.45; max-width: 860px; }
+  .night .sub { color: #CFCFCF; }
+
+  /* brand row */
+  .brand { display: flex; align-items: center; gap: 16px; }
+  .logo { width: 58px; height: 58px; border-radius: 50%; background: var(--coral); display: grid; place-items: center; color: var(--ink); flex: none; }
+  .word { font: 600 46px/1 var(--display); text-transform: uppercase; letter-spacing: 1px; }
+  .url { font: 500 22px var(--mono); }
+  .credit { font: 500 18px var(--mono); opacity: 0.6; }
+  .top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 52px; }
+  .foot { position: absolute; left: 72px; right: 72px; bottom: 56px; display: flex; justify-content: space-between; align-items: center; }
+  .wide .foot { left: 80px; right: 80px; bottom: 52px; }
+
+  .chip { display: inline-flex; align-items: center; gap: 10px; padding: 10px 20px; border-radius: 999px; background: rgba(0, 0, 0, 0.1); font: 500 21px var(--mono); }
+  .night .chip { background: rgba(255, 255, 255, 0.1); }
+  .chip.white { background: #fff; color: var(--ink); }
+  .dot { width: 12px; height: 12px; border-radius: 50%; }
+  .chips { display: flex; flex-wrap: wrap; gap: 12px; }
+
+  /* phones */
+  /* a phone: bezel, a status bar in the screen's own colour (with the camera pill), then the screenshot */
+  .phone { position: absolute; width: 330px; padding: 11px; border-radius: 54px; background: #111; box-shadow: 0 40px 70px rgba(20, 32, 24, 0.38); }
+  .phone::before { content: ""; display: block; height: 40px; border-radius: 44px 44px 0 0; background: var(--screen, var(--night)); }
+  .phone::after { content: ""; position: absolute; top: 22px; left: 50%; transform: translateX(-50%); width: 88px; height: 24px; border-radius: 20px; background: #111; }
+  .phone.light { --screen: var(--sage); }
+  .phone img { display: block; width: 100%; border-radius: 0 0 44px 44px; }
+
+  /* speech bubble */
+  .say { display: flex; gap: 18px; align-items: flex-start; background: var(--ice); color: var(--ink); border-radius: 32px 32px 32px 10px; padding: 24px 28px; max-width: 860px; }
+  .say .mic { width: 52px; height: 52px; border-radius: 50%; background: var(--ink); color: #fff; display: grid; place-items: center; flex: none; }
+  .say p { margin: 0; font: 400 25px/1.6 var(--ml); }
+  .say p.latin { font: 400 25px/1.5 var(--mono); }
+  .say small { display: block; margin-top: 6px; font: 500 17px var(--mono); opacity: 0.6; }
+
+  .shot { display: block; border-radius: 40px; box-shadow: 0 34px 70px rgba(20, 32, 24, 0.35); }
+
+  /* a sticky note, half written */
+  .sticky { position: absolute; padding: 40px 34px 30px; background: linear-gradient(180deg, rgba(255,255,255,0.3), rgba(255,255,255,0) 40%), var(--yellow-2); border-radius: 4px 4px 26px 4px; box-shadow: 0 30px 40px -18px rgba(25, 40, 30, 0.55); font-family: var(--hand); color: var(--ink); }
+  .sticky .tape { position: absolute; top: -14px; left: 50%; width: 110px; height: 32px; transform: translateX(-50%) rotate(-4deg); background: rgba(255,255,255,0.6); }
+  .sticky h3 { margin: 0 0 10px; font: 700 60px/1 var(--hand); }
+  .sticky p { margin: 0; font: 700 44px/1.2 var(--hand); white-space: pre-line; }
+  .pen { display: inline-block; width: 4px; height: 0.9em; margin-left: 3px; vertical-align: -0.08em; background: var(--ink); }
+
+  .arrow { position: absolute; }
+
+  /* chart: accuracy on 30 unseen notes */
+  .chart { background: #fff; border-radius: 30px; padding: 34px 36px 30px; }
+  .chart h2 { margin: 0; font: 600 34px/1 var(--display); text-transform: uppercase; }
+  .chart .note { margin: 8px 0 26px; font: 400 18px/1.4 var(--mono); color: var(--ink-2); }
+  .bar-row { display: grid; grid-template-columns: 300px 1fr; align-items: center; gap: 18px; margin-top: 16px; }
+  .bar-row .name { font: 500 20px/1.25 var(--mono); }
+  .bar-row .track { position: relative; height: 46px; border-bottom: 2px solid rgba(0,0,0,0.12); }
+  .bar-row .bar { position: absolute; left: 0; top: 4px; bottom: 4px; border-radius: 0 6px 6px 0; background: #6F716A; }
+  .bar-row.hi .bar { background: #E8604D; }
+  .bar-row .val { position: absolute; top: 50%; transform: translateY(-50%); font: 600 30px var(--display); padding-left: 12px; }
+  .bar-row.hi .name, .bar-row.hi .val { font-weight: 700; }
+  .stats { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 22px; }
+  .stat { border-radius: 26px; padding: 22px 24px; }
+  .stat b { display: block; font: 600 54px/1 var(--display); }
+  .stat span { display: block; margin-top: 8px; font: 400 19px/1.35 var(--mono); }
+</style>
+</head>
+<body>
+
+<!-- 1. LinkedIn square hero -->
+<div class="art sq" data-v="hero-square">
+  <div class="top">
+    <div class="brand"><span class="logo"><svg width="32" height="28" viewBox="0 0 28 24"><g fill="currentColor"><rect x="3.4" y="9" width="3.2" height="6" rx="1.6"/><rect x="7.9" y="5" width="3.2" height="14" rx="1.6"/><rect x="12.4" y="2" width="3.2" height="20" rx="1.6"/><rect x="16.9" y="6" width="3.2" height="12" rx="1.6"/><rect x="21.4" y="9.5" width="3.2" height="5" rx="1.6"/></g></svg></span><span class="word">Voc</span></div>
+    <span class="chip white"><span class="dot" style="background:var(--coral)"></span>usevoc.vercel.app</span>
+  </div>
+  <h1>Speak Malayalam.<br />Get it <span class="tag">written.</span></h1>
+  <p class="sub">Voice notes in Malayalam or Manglish become English emails, sticky notes and shopping lists.</p>
+  <div class="phone light" style="left: 78px; top: 640px; transform: rotate(-7deg);"><img src="shots/s-notes.png" /></div>
+  <div class="phone" style="left: 790px; top: 640px; transform: rotate(7deg);"><img src="shots/s-orders.png" /></div>
+  <div class="phone" style="left: 420px; top: 590px; width: 360px; z-index: 3;"><img src="shots/s-email.png" /></div>
+</div>
+
+<!-- 2. X wide hero -->
+<div class="art wide" data-v="hero-wide">
+  <div class="brand" style="margin-bottom: 46px;"><span class="logo"><svg width="32" height="28" viewBox="0 0 28 24"><g fill="currentColor"><rect x="3.4" y="9" width="3.2" height="6" rx="1.6"/><rect x="7.9" y="5" width="3.2" height="14" rx="1.6"/><rect x="12.4" y="2" width="3.2" height="20" rx="1.6"/><rect x="16.9" y="6" width="3.2" height="12" rx="1.6"/><rect x="21.4" y="9.5" width="3.2" height="5" rx="1.6"/></g></svg></span><span class="word">Voc</span></div>
+  <h1 style="max-width: 760px;">Speak<br />Malayalam.<br />Get it <span class="tag">written.</span></h1>
+  <p class="sub" style="max-width: 700px; font-size: 25px;">Voice notes become English emails, sticky notes and shopping lists.</p>
+  <div class="chips" style="margin-top: 30px; max-width: 720px;">
+    <span class="chip"><span class="dot" style="background:var(--violet)"></span>Email</span>
+    <span class="chip"><span class="dot" style="background:var(--yellow)"></span>Sticky notes</span>
+    <span class="chip"><span class="dot" style="background:var(--coral)"></span>To-dos &amp; dates</span>
+    <span class="chip"><span class="dot" style="background:var(--mint)"></span>Shop lists</span>
+  </div>
+  <div class="phone light" style="left: 880px; top: 150px; width: 300px; transform: rotate(-6deg);"><img src="shots/s-notes.png" /></div>
+  <div class="phone" style="left: 1230px; top: 170px; width: 300px; transform: rotate(6deg);"><img src="shots/s-orders.png" /></div>
+  <div class="phone" style="left: 1050px; top: 110px; width: 330px; z-index: 3;"><img src="shots/s-email.png" /></div>
+  <div class="foot" style="right: auto;"><span class="url">usevoc.vercel.app &nbsp;·&nbsp; <span class="credit">Created by Harinand</span></span></div>
+</div>
+
+<!-- 3. LinkedIn carousel 1: email -->
+<div class="art tall" data-v="c1-email" style="background: var(--violet);">
+  <span class="chip" style="background: var(--ink); color: #fff;">01 · Email</span>
+  <h1 style="margin-top: 30px;">Say it in Malayalam.<br />Send it in <span class="tag ice">English.</span></h1>
+  <div class="say" style="margin-top: 40px;">
+    <span class="mic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+    <p>നാളെ ഞാൻ ഓഫീസിൽ വരില്ല, അമ്മേടെ ഡോക്ടർ appointment ഉണ്ട്. Report തിങ്കളാഴ്ച രാവിലെ അയച്ചു തരാം.<small>what you say</small></p>
+  </div>
+  <img class="shot" src="shots/c-email.png" style="position: absolute; left: 190px; top: 590px; width: 700px; transform: rotate(-1.5deg);" />
+</div>
+
+<!-- 4. LinkedIn carousel 2: sticky notes -->
+<div class="art tall" data-v="c2-notes">
+  <span class="chip" style="background: var(--ink); color: #fff;">02 · Sticky notes</span>
+  <h1 style="margin-top: 30px;">Talk it out.<br />It <span class="tag yellow">writes itself.</span></h1>
+  <div class="say" style="margin-top: 40px; max-width: 700px;">
+    <span class="mic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+    <p class="latin">Nale bank-il pokanam, light bill adakkanam, Ammakku 500 roopa kodukkanam…</p>
+  </div>
+  <div class="sticky" style="left: 80px; top: 720px; width: 520px; transform: rotate(-3deg); z-index: 3;">
+    <span class="tape"></span>
+    <h3>Bank and bills</h3>
+    <p>- Go to the bank on Saturday
+- Pay the electricity bill
+- Give ₹500 to Am<span class="pen"></span></p>
+  </div>
+  <div class="phone light" style="left: 640px; top: 560px; width: 360px; transform: rotate(5deg);"><img src="shots/s-notes.png" /></div>
+</div>
+
+<!-- 5. LinkedIn carousel 3: shopping -->
+<div class="art tall night" data-v="c3-shop">
+  <span class="chip white">03 · Shopping</span>
+  <h1 style="margin-top: 30px;">Say the list.<br /><span class="tag" style="color: var(--ink);">Shop it.</span></h1>
+  <p class="sub" style="margin-top: 22px;">Malayalam amounts become real ones (arakilo = ½ kg), and each item opens Blinkit, Zepto, Instamart, BigBasket or JioMart.</p>
+  <div class="say" style="margin-top: 30px; max-width: 760px;">
+    <span class="mic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+    <p class="latin">Chetta, randu kilo matta ari, 2 packet maggi, oru kilo oats, pathu mutta venam</p>
+  </div>
+  <img class="shot" src="shots/c-order.png" style="position: absolute; left: 250px; top: 760px; width: 580px; transform: rotate(2deg);" />
+</div>
+
+<!-- 6. LinkedIn carousel 4: how well it works -->
+<div class="art tall cream" data-v="c4-eval">
+  <span class="chip" style="background: var(--ink); color: #fff;">04 · Under the hood</span>
+  <h1 style="margin-top: 30px;">Measured,<br /><span class="tag violet">not guessed.</span></h1>
+  <div class="chart" style="margin-top: 40px;">
+    <h2>Notes read fully right</h2>
+    <p class="note">On 30 test notes never used for tuning: every item, quantity, date and time had to be right.</p>
+    <div class="bar-row"><span class="name">Rules only, offline</span><span class="track"><span class="bar" style="width: 57%"></span><span class="val" style="left: 57%">57%</span></span></div>
+    <div class="bar-row"><span class="name">Groq gpt-oss alone</span><span class="track"><span class="bar" style="width: 63%"></span><span class="val" style="left: 63%">63%</span></span></div>
+    <div class="bar-row"><span class="name">Gemini alone, first prompt</span><span class="track"><span class="bar" style="width: 67%"></span><span class="val" style="left: 67%">67%</span></span></div>
+    <div class="bar-row hi"><span class="name">Voc: Gemini + Manglish checks</span><span class="track"><span class="bar" style="width: 90%"></span><span class="val" style="left: 90%">90%</span></span></div>
+  </div>
+  <div class="stats">
+    <div class="stat" style="background: var(--yellow);"><b>onnara kilo</b><span>= 1.5 kg. Its own Manglish engine reads Malayalam numbers, units and dates.</span></div>
+    <div class="stat" style="background: var(--ice);"><b>3 AIs</b><span>Gemini, Groq, Sarvam. A slow or failing one hands over to the next.</span></div>
+    <div class="stat" style="background: var(--mint); grid-column: 1 / -1;"><b>adutha velliyazhcha</b><span>= Friday next week. Dates are worked out in code from today's calendar, never left to the AI's guess.</span></div>
+  </div>
+  <div class="foot">
+    <div class="brand"><span class="logo"><svg width="32" height="28" viewBox="0 0 28 24"><g fill="currentColor"><rect x="3.4" y="9" width="3.2" height="6" rx="1.6"/><rect x="7.9" y="5" width="3.2" height="14" rx="1.6"/><rect x="12.4" y="2" width="3.2" height="20" rx="1.6"/><rect x="16.9" y="6" width="3.2" height="12" rx="1.6"/><rect x="21.4" y="9.5" width="3.2" height="5" rx="1.6"/></g></svg></span><span class="word">Voc</span></div>
+    <span class="url">usevoc.vercel.app · <span class="credit">Created by Harinand</span></span>
+  </div>
+</div>
+
+<!-- link preview (og:image), 1200x630 -->
+<div class="art" data-v="og" style="width: 1200px; height: 630px; padding: 60px 64px;">
+  <div class="brand" style="margin-bottom: 34px;"><span class="logo"><svg width="32" height="28" viewBox="0 0 28 24"><g fill="currentColor"><rect x="3.4" y="9" width="3.2" height="6" rx="1.6"/><rect x="7.9" y="5" width="3.2" height="14" rx="1.6"/><rect x="12.4" y="2" width="3.2" height="20" rx="1.6"/><rect x="16.9" y="6" width="3.2" height="12" rx="1.6"/><rect x="21.4" y="9.5" width="3.2" height="5" rx="1.6"/></g></svg></span><span class="word">Voc</span></div>
+  <h1 style="font-size: 96px; max-width: 640px;">Speak Malayalam.<br />Get it <span class="tag">written.</span></h1>
+  <p class="sub" style="max-width: 600px; font-size: 23px; margin-top: 22px;">English emails, sticky notes and shopping lists from voice notes in Malayalam or Manglish. Free, no sign-up.</p>
+  <div class="foot" style="left: 64px; bottom: 42px; right: auto;"><span class="url">usevoc.vercel.app</span></div>
+  <div class="phone light" style="left: 690px; top: 110px; width: 250px; transform: rotate(-6deg);"><img src="shots/s-notes.png" /></div>
+  <div class="phone" style="left: 900px; top: 70px; width: 260px; transform: rotate(5deg); z-index: 3;"><img src="shots/s-email.png" /></div>
+</div>
+
+<!-- 7-9. X feature images -->
+<div class="art wide" data-v="x-email" style="background: var(--violet);">
+  <span class="chip" style="background: var(--ink); color: #fff;">Email</span>
+  <h1 style="margin-top: 26px; font-size: 104px; max-width: 760px;">Say it in Malayalam. Send it in <span class="tag ice">English.</span></h1>
+  <div class="say" style="margin-top: 34px; max-width: 700px;">
+    <span class="mic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+    <p style="font-size: 22px;">നാളെ ഞാൻ ഓഫീസിൽ വരില്ല, അമ്മേടെ ഡോക്ടർ appointment ഉണ്ട്…</p>
+  </div>
+  <img class="shot" src="shots/c-email.png" style="position: absolute; left: 900px; top: 70px; width: 620px; transform: rotate(2deg);" />
+  <div class="foot" style="right: auto;"><span class="url">Voc · usevoc.vercel.app</span></div>
+</div>
+
+<div class="art wide" data-v="x-notes">
+  <span class="chip" style="background: var(--ink); color: #fff;">Sticky notes</span>
+  <h1 style="margin-top: 26px; font-size: 112px; max-width: 760px;">Talk it out. It <span class="tag yellow">writes itself.</span></h1>
+  <div class="say" style="margin-top: 34px; max-width: 680px;">
+    <span class="mic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+    <p class="latin" style="font-size: 22px;">Nale bank-il pokanam, light bill adakkanam…</p>
+  </div>
+  <div class="sticky" style="left: 860px; top: 300px; width: 440px; transform: rotate(-4deg); z-index: 3;">
+    <span class="tape"></span>
+    <h3 style="font-size: 52px;">Bank and bills</h3>
+    <p style="font-size: 38px;">- Go to the bank on Saturday
+- Pay the electricity bill
+- Give ₹500 to Am<span class="pen"></span></p>
+  </div>
+  <div class="phone light" style="left: 1240px; top: 90px; width: 300px; transform: rotate(5deg);"><img src="shots/s-notes.png" /></div>
+  <div class="foot" style="right: auto;"><span class="url">Voc · usevoc.vercel.app</span></div>
+</div>
+
+<div class="art wide night" data-v="x-shop">
+  <span class="chip white">Shopping</span>
+  <h1 style="margin-top: 26px; font-size: 112px;">Say the list.<br /><span class="tag" style="color: var(--ink);">Shop it.</span></h1>
+  <p class="sub" style="max-width: 720px; font-size: 24px;">arakilo = ½ kg, pathu mutta = 10 eggs. Each item opens Blinkit, Zepto, Instamart, BigBasket or JioMart.</p>
+  <div class="say" style="margin-top: 26px; max-width: 700px;">
+    <span class="mic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></span>
+    <p class="latin" style="font-size: 22px;">Chetta, randu kilo matta ari, 2 packet maggi, pathu mutta venam</p>
+  </div>
+  <img class="shot" src="shots/c-order.png" style="position: absolute; left: 1010px; top: 60px; width: 480px; transform: rotate(2deg);" />
+  <div class="foot" style="right: auto;"><span class="url" style="color: #CFCFCF;">Voc · usevoc.vercel.app</span></div>
+</div>
+
+</body>
+</html>

@@ -36,3 +36,5 @@ export async function GET(request) {
   } while (cursor);
   return new Response(toCsv(rows), { headers: { 'content-type': 'text/plain; charset=utf-8', 'cache-control': 'no-store' } });
 }
+
+export function OPTIONS() { return new Response(null, { status: 204 }); }

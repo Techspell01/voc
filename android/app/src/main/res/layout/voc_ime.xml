@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- The Voc keyboard: a mic, what it is doing, and a way back to your usual keyboard. -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:background="#161616"
+    android:padding="10dp">
+
+    <Button
+        android:id="@+id/mic"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:minWidth="132dp"
+        android:backgroundTint="#F2705F"
+        android:textColor="#FFFFFF"
+        android:textAllCaps="false"
+        android:textSize="15sp"
+        android:text="@string/ime_tap" />
+
+    <TextView
+        android:id="@+id/status"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:paddingStart="12dp"
+        android:paddingEnd="12dp"
+        android:textColor="#BEE7EE"
+        android:textSize="13.5sp"
+        android:text="@string/ime_hint" />
+
+    <Button
+        android:id="@+id/switch_kb"
+        android:layout_width="wrap_content"
+        android:layout_height="58dp"
+        android:backgroundTint="#2B2B2B"
+        android:textColor="#E6E6E6"
+        android:textAllCaps="false"
+        android:textSize="13sp"
+        android:text="@string/ime_switch" />
+</LinearLayout>

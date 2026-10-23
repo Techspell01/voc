@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">Voc</string>
+    <string name="title_activity_main">Voc</string>
+    <string name="package_name">com.techspell.voc</string>
+    <string name="custom_url_scheme">com.techspell.voc</string>
+
+    <string name="ime_label">Voc keyboard</string>
+    <string name="ime_hint">Talk into any text box and Voc writes it in English</string>
+    <string name="ime_tap">Tap to speak</string>
+    <string name="ime_stop">Stop</string>
+    <string name="ime_listening">listening… tap to stop</string>
+    <string name="ime_translating">writing it in English…</string>
+    <string name="ime_switch">Switch</string>
+    <string name="ime_mic_denied">Microphone blocked. Allow it for Voc, then tap the mic again.</string>
+    <string name="ime_copied">Copied — paste it into your chat.</string>
+</resources>

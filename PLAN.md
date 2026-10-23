@@ -18,6 +18,8 @@
 - [ ] First real run with the user's Zepto account on localhost; fix whatever the real tool schemas need.
 - [ ] Ask Zepto to allow https://usevoc.vercel.app/zepto-callback (issue on github.com/zeptonow/mcp), and apply for Swiggy Builders Club production access.
 - [x] Translate a reply (2026-10-19): say it in Malayalam, Hindi, Manglish or English and get one English message to copy or send on WhatsApp, off a card on Home. Speech asks for language detection (`?lang=auto`) so Hindi isn't read as Malayalam. Nothing is saved.
+- [x] Voc keyboard (2026-10-21, asked for by the user): a real keyboard inside the Android app. Tap the mic while any chat box is open, speak, and the English reply is typed where the caret is, so WhatsApp is never left. It calls the live backend itself (`/api/transcribe?lang=auto`, then `/api/compose`) and keeps nothing. The keyboard has no letter keys: a mic, a status line, and a way back to your usual keyboard. On the phone the Translate screen also copies each reply the moment it arrives and puts WhatsApp first.
+- [x] Home is Email + Translate only (2026-10-21, asked for by the user): the Email / Note / Lists picker is gone. Notes are recorded with the yellow mic in Notes; lists with the coral mic in Orders (or typed into Orders when the list is empty). A written list opens in Orders, or in To-do when it only made to-dos and dates, and "Add more items" now sits on each order card.
 
 ## Phase 2: real voice notes (next)
 - [ ] Get a Sarvam key (free credits) and run `npm run eval:audio` with Sarvam vs Gemini.
@@ -38,6 +40,6 @@
 - [ ] Pricing to test: ₹199-499/month per shop.
 
 ## Ideas
-- Android app: a Trusted Web Activity (PWABuilder / Bubblewrap) so web deploys reach it without store updates. Testers are being collected now (`/android`, 2026-10-09); Play's closed test needs 12+ for 14 days. Needs `/.well-known/assetlinks.json` with the signing key (and Play App Signing's) fingerprint.
+- Android app: Capacitor (2026-10-21, replaced the Bubblewrap TWA) — the APK wraps the live site and ships the Voc keyboard. The release build is signed with `android/keystore/voc-android.keystore` (kept out of git); Play's closed test still needs 12+ testers for 14 days.
 - Reminders as notifications instead of calendar entries.
 - A Manglish keyboard-free note: speak, Voc writes a clean WhatsApp message back in Manglish or Malayalam.

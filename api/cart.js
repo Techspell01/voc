@@ -31,3 +31,5 @@ export async function POST(request) {
     return json({ error: 'failed', message: err.message || 'Something went wrong with the store.' }, 502);
   }
 }
+
+export function OPTIONS() { return new Response(null, { status: 204 }); }

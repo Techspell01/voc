@@ -4,3 +4,14 @@ dist
 .env*
 !.env.example
 *.tmp.mjs
+
+# Android build output and secrets
+android/keystore/
+android/.gradle/
+android/.idea/
+android/build/
+android/app/build/
+android/local.properties
+android/app-release-signed.apk
+android/app-release-unsigned-aligned.apk
+android/app-release-bundle.aab

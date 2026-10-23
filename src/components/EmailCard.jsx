@@ -5,7 +5,7 @@ import { Btn, Circle, COLORS } from './bits.jsx';
 import { Icon } from './Icons.jsx';
 import { copy } from '../lib/share.js';
 import { updateNote } from '../lib/store.js';
-import { engineName } from './NoteView.jsx';
+import { engineName } from '../lib/labels.js';
 import { ago } from '../lib/format.js';
 
 const REWRITES = [['formal', 'More formal', ''], ['friendly', 'Friendlier', 'sage'], ['shorter', 'Shorter', 'yellow'], ['detail', 'Clearer', '']];

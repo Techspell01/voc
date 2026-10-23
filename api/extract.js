@@ -21,3 +21,5 @@ export async function POST(request) {
     return failure(err, 'reading');
   }
 }
+
+export function OPTIONS() { return new Response(null, { status: 204 }); }

@@ -14,7 +14,7 @@ export default function RecordFab({ onAudio, disabled, tone = 'yellow', label = 
         </button>
       )}
       {r.recording && (
-        <div className={`rec-panel tone t-${tone === 'yellow' ? 'yellow' : 'violet'}`} role="dialog" aria-label={`Recording a ${what}`}>
+        <div className={`rec-panel tone t-${tone === 'yellow' ? 'yellow' : tone === 'coral' ? 'coral' : 'violet'}`} role="dialog" aria-label={`Recording a ${what}`}>
           <div className="card-top">
             <div className="grow"><Chip dot={COLORS.coral}>recording a {what} · max {MAX_SEC / 60} min</Chip></div>
             <Circle icon="plus" tone="dark" label="Cancel" onClick={r.cancel} style={{ transform: 'rotate(45deg)' }} />
